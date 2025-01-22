@@ -1,15 +1,13 @@
-import { View } from 'react-native'
-import React from 'react'
-import HomeScreen from './src/screens/HomeScreen'
-import { NavigationContainer } from '@react-navigation/native'
-import Tabs from './src/navigation/Tabs'
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import RootNavigation from './src/navigation/rootNavigation';
+
 const App = () => {
   return (
     <NavigationContainer>
-    <Tabs />
-     
+      <RootNavigation />
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default App
+export default App;
