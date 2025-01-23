@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/StackNavigation';
 
+
 type HeaderProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Header'>;
 };
