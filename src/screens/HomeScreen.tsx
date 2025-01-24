@@ -1,20 +1,20 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
 import React from 'react';
-import Header from '../components/Header';
-import Middle from '../components/Middle';
-import Learningkits from '../components/Learningkits';
-import SkillBoosters from '../components/SkillBoosters';
-import LiveClasses from '../components/LiveClasses';
-import RecordedClasses from '../components/RecordedClasses';
-import Play from '../components/Play';
-import Footer from '../components/Footer';
+import Header from '../components/homescreencomponents/Header';
+import Middle from '../components/homescreencomponents/Middle';
+import Learningkits from '../components/homescreencomponents/Learningkits';
+import SkillBoosters from '../components/homescreencomponents/SkillBoosters';
+import LiveClasses from '../components/homescreencomponents/LiveClasses';
+import RecordedClasses from '../components/homescreencomponents/RecordedClasses';
+import Play from '../components/homescreencomponents/Play';
+import Footer from '../components/homescreencomponents/Footer';
 import { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { RootStackParamList } from '../navigation/StackNavigation';
 
-type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Header'>;
+type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();

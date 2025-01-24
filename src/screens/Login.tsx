@@ -2,11 +2,17 @@ import { View, Text, StyleSheet,TextInput,TouchableOpacity, Image } from 'react-
 import React, { useState } from 'react'
 import {CountryPicker} from "react-native-country-codes-picker";
 import { useNavigation } from '@react-navigation/native';
+import HomeScreen from './HomeScreen';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/StackNavigation';
+
+type LoginProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Login'>;
+};
 
 
-
-const Login = () => {
-  const navigation = useNavigation();
+const Login = ({navigation}: LoginProps) => {
+  
   const [number, onChangeNumber] = React.useState('');
   const [show, setShow] = useState(false);
   const [countryCode, setCountryCode] = useState('');
@@ -33,26 +39,19 @@ const Login = () => {
             fontSize: 15,
             paddingLeft: 30
         }}>
-            {countryCode}
+            
         </Text>
-      </TouchableOpacity>
-
-      // For showing picker just put show state to show prop
-      <CountryPicker
+      </TouchableOpacity><CountryPicker
         show={show}
         // when picker button press you will get the country object with dial code
         pickerButtonOnPress={(item) => {
           setCountryCode(item.dial_code);
           setShow(false);
-        } } lang={''}      />
-
-        <TouchableOpacity 
-        style = {{
-          marginLeft: 30,
-          marginTop: 550
-        }}>
-          <Text style={{color:'red'}}>Back to Home</Text>
-        </TouchableOpacity>
+        } } lang={''}/>
+        
+        <TouchableOpacity style = {{marginLeft: 30,marginTop: 550}}
+        onPress={() => navigation.navigate('Home')}>
+          <Text style={{color:'red'}}>Back to Home</Text></TouchableOpacity>
         <TouchableOpacity
         style = {{
           marginLeft: 260,

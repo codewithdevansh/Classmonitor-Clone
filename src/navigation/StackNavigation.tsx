@@ -5,7 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import Login from '../screens/Login';
 
 export type RootStackParamList = {
-  Header: undefined;
+  Home: undefined;
   Login: undefined;
 };
 
@@ -14,8 +14,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function StackNavigation(): JSX.Element {
   return (
     
-      <Stack.Navigator initialRouteName="Header">
-        <Stack.Screen name="Header" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
    

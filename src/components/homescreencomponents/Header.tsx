@@ -2,11 +2,11 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/StackNavigation';
+import { RootStackParamList } from '../../navigation/StackNavigation';
 
 
 type HeaderProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Header'>;
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
 };
 
 const Header = ({ navigation }: HeaderProps) => {
@@ -19,7 +19,7 @@ const Header = ({ navigation }: HeaderProps) => {
         style={[{ height: 450, alignItems: 'flex-start' }, styles.container]}
       >
         <Image
-          source={require('../assets/logo.png')}
+          source={require('../../assets/logo.png')}
           style={{ width: 35, height: 35, marginLeft: 10, marginTop: 10 }}
         />
         <TouchableOpacity
@@ -30,7 +30,7 @@ const Header = ({ navigation }: HeaderProps) => {
         </TouchableOpacity>
         <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
         <Image
-          source={require('../assets/headerimage.png')}
+          source={require('../../assets/headerimage.png')}
           style={styles.headerimage}
         />
       </LinearGradient>

@@ -1,16 +1,17 @@
 // import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+
 // import React from 'react'
 
-// const SkillBoosters = () => {
+// const LiveClasses = () => {
 //  return (
 //      <View style={styles.container}>
 //        <Image
-//          source={require('../assets/rocket.png')}
+//          source={require('../assets/pencil.png')}
 //          style={styles.LearningKitsLogo}
 //        />
-//        <Text style={styles.lktext}>Skill Boosters</Text>
+//        <Text style={styles.lktext}>Live Classes</Text>
 //        <Text style={styles.lkstext}>
-//          Devlop 21st century skills with our expert curated skill booster kits
+//          Turn screen time into learning time with our Engaging live classes
 //        </Text>
 //        <View>
 //          <TouchableOpacity style={styles.lkbutton}>
@@ -37,6 +38,7 @@
 //      justifyContent: 'center',
 //      alignItems: 'center',
 //      backgroundColor: '#E2F0F9',
+
 //    },
    
 //    LearningKitsLogo: {
@@ -127,7 +129,7 @@
  
 //  });
  
-// export default SkillBoosters
+// export default LiveClasses
 
 
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
@@ -138,43 +140,43 @@ const Learningkits = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/rocket.png')}
+        source={require('../../assets/pencil.png')}
         style={styles.LearningKitsLogo}
       />
-      <Text style={styles.lktext}>Skill Boosters</Text>
+      <Text style={styles.lktext}>Live Classes</Text>
       <Text style={styles.lkstext}>
-      Devlop 21st century skills with our expert curated skill booster kits
+      Turn screen time into learning time with our Engaging live classes
       </Text>
 
       <ScrollView horizontal={true} style={styles.horizon} showsHorizontalScrollIndicator={false}>
         <View style={styles.lkbuttonContainer}>
           <TouchableOpacity style={styles.lkbutton}>
             <Image 
-              source={require('../assets/learningkitimage.png')}
+              source={require('../../assets/learningkitimage.png')}
               style={styles.lkimage} 
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
-            <Image source={require('../assets/right.png')} style={styles.right} />
+            <Image source={require('../../assets/right.png')} style={styles.right} />
           </TouchableOpacity>
         </View>
 
         <View style={styles.lkbuttonContainer}>
           <TouchableOpacity style={styles.lkbutton}>
             <Image 
-              source={require('../assets/learningkitimage.png')}
+              source={require('../../assets/learningkitimage.png')}
               style={styles.lkimage} 
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
-            <Image source={require('../assets/right.png')} style={styles.right} />
+            <Image source={require('../../assets/right.png')} style={styles.right} />
           </TouchableOpacity>
         </View>
       </ScrollView>
 
       <TouchableOpacity style={styles.viewbutton}>
-        <Text style={styles.viewtext}>View all booster Kits</Text>
-        <Image source={require('../assets/next.png')} style={styles.next} />
+        <Text style={styles.viewtext}>View all live classes</Text>
+        <Image source={require('../../assets/next.png')} style={styles.next} />
       </TouchableOpacity>
     </View>
   );
@@ -187,7 +189,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#E2F0F9',
     paddingTop: 0,
-    paddingBottom:25 // Adjusted for better alignment
+    paddingBottom:20 // Adjusted for better alignment
   },
   LearningKitsLogo: {
     width: '25%',

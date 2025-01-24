@@ -1,17 +1,16 @@
 // import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-
 // import React from 'react'
 
-// const LiveClasses = () => {
+// const Play = () => {
 //  return (
 //      <View style={styles.container}>
 //        <Image
-//          source={require('../assets/pencil.png')}
+//          source={require('../assets/play.png')}
 //          style={styles.LearningKitsLogo}
 //        />
-//        <Text style={styles.lktext}>Live Classes</Text>
+//        <Text style={styles.lktext}>Play</Text>
 //        <Text style={styles.lkstext}>
-//          Turn screen time into learning time with our Engaging live classes
+//          Montessori inspired toys to make playtime a learning experience
 //        </Text>
 //        <View>
 //          <TouchableOpacity style={styles.lkbutton}>
@@ -22,12 +21,9 @@
 //          <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
 //          <Image source={require('../assets/right.png')} style={styles.right} />
 //          </TouchableOpacity>
-         
+
 //        </View>
-//        <TouchableOpacity style={styles.viewbutton}>
-//                <Text style={styles.viewtext}>View All Learning Kits</Text>
-//                <Image source={require('../assets/next.png')} style={styles.next} />
-//              </TouchableOpacity>
+       
 //      </View>
 //    );
 //  };
@@ -38,7 +34,7 @@
 //      justifyContent: 'center',
 //      alignItems: 'center',
 //      backgroundColor: '#E2F0F9',
-
+//      marginBottom : 60
 //    },
    
 //    LearningKitsLogo: {
@@ -100,36 +96,10 @@
 //      marginTop: -40,
 //      alignItems: 'right',
 //    },
-//    viewbutton: {
-//      backgroundColor: 'white',
-//      borderRadius: 20,
-//      padding: 10,
-//      marginTop: 20,
-//      marginBottom: 20,
-//      width: 250,
-//      justifyContent: 'center',
-//      height: 40,
-//    },
-//    viewtext: {
-//      fontSize: 14,
-//      textAlign: 'center',
-//      marginRight: 70,
-//      color: 'red',
-//      fontWeight: 'bold',
    
-//    },
-//    next: {
-//      width: 20,
-//      height: 20,
-//      resizeMode: 'contain',
-//      marginLeft: 190,
-//      marginTop: -20,
-//      color: 'red',
-//    },
- 
 //  });
  
-// export default LiveClasses
+// export default Play
 
 
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
@@ -140,44 +110,41 @@ const Learningkits = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/pencil.png')}
+        source={require('../../assets/play.png')}
         style={styles.LearningKitsLogo}
       />
-      <Text style={styles.lktext}>Live Classes</Text>
+      <Text style={styles.lktext}>Play</Text>
       <Text style={styles.lkstext}>
-      Turn screen time into learning time with our Engaging live classes
+      Montessori inspired toys to make playtime a learning experience
       </Text>
 
       <ScrollView horizontal={true} style={styles.horizon} showsHorizontalScrollIndicator={false}>
         <View style={styles.lkbuttonContainer}>
           <TouchableOpacity style={styles.lkbutton}>
             <Image 
-              source={require('../assets/learningkitimage.png')}
+              source={require('../../assets/learningkitimage.png')}
               style={styles.lkimage} 
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
-            <Image source={require('../assets/right.png')} style={styles.right} />
+            <Image source={require('../../assets/right.png')} style={styles.right} />
           </TouchableOpacity>
         </View>
 
         <View style={styles.lkbuttonContainer}>
           <TouchableOpacity style={styles.lkbutton}>
             <Image 
-              source={require('../assets/learningkitimage.png')}
+              source={require('../../assets/learningkitimage.png')}
               style={styles.lkimage} 
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
-            <Image source={require('../assets/right.png')} style={styles.right} />
+            <Image source={require('../../assets/right.png')} style={styles.right} />
           </TouchableOpacity>
         </View>
       </ScrollView>
 
-      <TouchableOpacity style={styles.viewbutton}>
-        <Text style={styles.viewtext}>View all live classes</Text>
-        <Image source={require('../assets/next.png')} style={styles.next} />
-      </TouchableOpacity>
+      
     </View>
   );
 };
@@ -189,7 +156,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#E2F0F9',
     paddingTop: 0,
-    paddingBottom:20 // Adjusted for better alignment
+    paddingBottom:40
+     // Adjusted for better alignment
   },
   LearningKitsLogo: {
     width: '25%',

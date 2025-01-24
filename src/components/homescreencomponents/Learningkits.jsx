@@ -7,7 +7,7 @@ const Learningkits = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/LearningKitsLogo.png')}
+        source={require('../../assets/LearningKitsLogo.png')}
         style={styles.LearningKitsLogo}
       />
       <Text style={styles.lktext}>Learning Kits</Text>
@@ -20,31 +20,31 @@ const Learningkits = () => {
         <View style={styles.lkbuttonContainer}>
           <TouchableOpacity style={styles.lkbutton}>
             <Image 
-              source={require('../assets/learningkitimage.png')}
+              source={require('../../assets/learningkitimage.png')}
               style={styles.lkimage} 
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
-            <Image source={require('../assets/right.png')} style={styles.right} />
+            <Image source={require('../../assets/right.png')} style={styles.right} />
           </TouchableOpacity>
         </View>
 
         <View style={styles.lkbuttonContainer}>
           <TouchableOpacity style={styles.lkbutton}>
             <Image 
-              source={require('../assets/learningkitimage.png')}
+              source={require('../../assets/learningkitimage.png')}
               style={styles.lkimage} 
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
-            <Image source={require('../assets/right.png')} style={styles.right} />
+            <Image source={require('../../assets/right.png')} style={styles.right} />
           </TouchableOpacity>
         </View>
       </ScrollView>
 
       <TouchableOpacity style={styles.viewbutton}>
         <Text style={styles.viewtext}>View All Learning Kits</Text>
-        <Image source={require('../assets/next.png')} style={styles.next} />
+        <Image source={require('../../assets/next.png')} style={styles.next} />
       </TouchableOpacity>
     </View>
   );
