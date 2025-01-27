@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   loginbutton: {
-    backgroundColor: '#ff4081',
+    backgroundColor: 'red',
     borderRadius: 20,
     padding: 10,
     width: 100,
@@ -66,14 +66,15 @@ const styles = StyleSheet.create({
   },
   headerimage: {
     width: 350,
-    height: '50%',
+    height: '800%',
     resizeMode: 'contain',
     marginLeft: 10,
     marginTop: 10,
     marginBottom: 10,
     justifyContent: 'center',
     maxWidth: 350,
-    maxHeight: 200,
+    maxHeight: 250,
+    borderRadius:50,
   },
 });
 

@@ -5,7 +5,6 @@ import Community from "../screens/Community";
 import PlayScreen from "../screens/PlayScreen";
 import Account from "../screens/Account";
 import { StyleSheet } from "react-native";
-
 import { View,Image } from "react-native";
 const Tab = createBottomTabNavigator();
 
