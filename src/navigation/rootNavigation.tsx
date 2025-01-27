@@ -22,7 +22,7 @@ const RootNavigation = () => {
 
         {/* Stack Screens */}
         <RootStack.Screen name="Login" component={Login} />
-        <RootStack.Screen name="HomeScreen" component={HomeScreen} />
+         
       </RootStack.Navigator>
    
   );

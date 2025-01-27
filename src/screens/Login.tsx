@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import {CountryPicker} from "react-native-country-codes-picker";
 import { useNavigation } from '@react-navigation/native';
 import HomeScreen from './HomeScreen';
+
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/rootNavigation';
 
@@ -50,7 +51,7 @@ const Login = ({navigation}: LoginProps) => {
         } } lang={''}/>
         
         <TouchableOpacity style = {{marginLeft: 30,marginTop: 550}}
-        onPress={() => navigation.navigate('HomeScreen')}>
+        onPress={() => navigation.navigate('MainTabs')}>
           <Text style={{color:'red'}}>Back to Home</Text></TouchableOpacity>
         <TouchableOpacity
         style = {{
