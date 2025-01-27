@@ -1,25 +1,22 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from '../screens/HomeScreen';
-import Login from '../screens/Login';
+// import React from 'react';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import HomeScreen from '../screens/HomeScreen';
+// import Login from '../screens/Login';
 
-export type RootStackParamList = {
-  Home: undefined;
-  Login: undefined;
-};
+// export type StackParamList = {
+//   HomeScreen: undefined;
+//   Login: undefined;
+// };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+// const Stack = createNativeStackNavigator<StackParamList>();
 
-function StackNavigation(): JSX.Element {
-  return (
-    
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Login" component={Login} />
-      </Stack.Navigator>
-   
-  );
-}
+// const StackNavigation = () => {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+//       <Stack.Screen name="Login" component={Login} />
+//     </Stack.Navigator>
+//   );
+// };
 
-export default StackNavigation;
+// export default StackNavigation;

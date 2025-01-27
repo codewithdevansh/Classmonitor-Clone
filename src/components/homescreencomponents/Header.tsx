@@ -2,11 +2,11 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../navigation/StackNavigation';
+import { RootStackParamList } from '../../navigation/rootNavigation';
 
 
 type HeaderProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
+  navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreen'>;
 };
 
 const Header = ({ navigation }: HeaderProps) => {
