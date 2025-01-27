@@ -4,7 +4,7 @@ import { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler'
 import CommunityHeader from '../components/communitycomponents/CommunityHeader'
-
+import CommunityMiddle from '../components/communitycomponents/CommunityMiddle'
 const Community = () => {
   const navigation = useNavigation();
 
@@ -19,6 +19,7 @@ const Community = () => {
    <ScrollView>
     <View>
       <CommunityHeader/>
+      <CommunityMiddle/>
       </View>
    </ScrollView>
    </GestureHandlerRootView>

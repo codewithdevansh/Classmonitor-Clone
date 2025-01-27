@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Vertically align items
     paddingTop: 22,
     paddingLeft:10,
+    paddingBottom:10,
     backgroundColor: 'white',
 
   },
