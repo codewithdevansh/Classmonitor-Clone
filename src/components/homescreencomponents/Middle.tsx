@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
@@ -14,7 +14,11 @@ const MiddleComponent = ({navigation}: middleProps) => {
     if (buttonName === 'All') {
       navigation.navigate('MainTabs'); // Navigate on "All" button press
     }
+    if (buttonName === '03years') {
+      navigation.navigate('MainTabs2'); 
+    }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -26,13 +30,28 @@ const MiddleComponent = ({navigation}: middleProps) => {
         onPress={() => handleButtonPress('All')}>
         <Text style={styles.alltext}>All</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          selectedButton === '03years' && styles.buttonSelected, // Apply selected style if 'All' is selected
+        ]}
+        onPress={() => handleButtonPress('03years')}>
         <Text style={styles.alltext}>0-3 Years</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          selectedButton === '03years' && styles.buttonSelected, // Apply selected style if 'All' is selected
+        ]}
+        onPress={() => handleButtonPress('03years')}>
         <Text style={styles.alltext}>3-6 Years</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          selectedButton === '03years' && styles.buttonSelected, // Apply selected style if 'All' is selected
+        ]}
+        onPress={() => handleButtonPress('03years')}>
         <Text style={styles.alltext}>6-8 Years</Text>
       </TouchableOpacity>
       

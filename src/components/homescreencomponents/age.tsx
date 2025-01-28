@@ -87,7 +87,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   lkbuttonContainer: {
-    marginRight: 20, // Space between horizontal components
+    marginRight: 40,
+    padding:30,
+    justifyContent:'center',
+    paddingBottom:10,
+     // Space between horizontal components
   },
   lkbutton: {
     backgroundColor: 'white',
