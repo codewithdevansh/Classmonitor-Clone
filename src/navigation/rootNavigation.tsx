@@ -9,6 +9,7 @@ export type RootStackParamList = {
   MainTabs: undefined;
   Login: undefined;
   HomeScreen: undefined;
+  Middle:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();

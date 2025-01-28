@@ -30,7 +30,7 @@ const HomeScreen = () => {
       <ScrollView>
         <View>
           <Header navigation={navigation} />
-          <Middle />
+          <Middle navigation={navigation} />
           <Learningkits />
           <SkillBoosters />
           <LiveClasses />
