@@ -135,8 +135,14 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/rootNavigation';
 
-const Learningkits = () => {
+type LearningkitsProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Learningkits'>;
+};
+
+const Learningkits = ({navigation} : LearningkitsProps) => {
   return (
     <View style={styles.container}>
       <Image
@@ -174,7 +180,8 @@ const Learningkits = () => {
         </View>
       </ScrollView>
 
-      <TouchableOpacity style={styles.viewbutton}>
+      <TouchableOpacity style={styles.viewbutton}
+      onPress={()=> navigation.navigate('Viewkits')}>
         <Text style={styles.viewtext}>View all live classes</Text>
         <Image source={require('../../assets/next.png')} style={styles.next} />
       </TouchableOpacity>

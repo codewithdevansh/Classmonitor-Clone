@@ -32,9 +32,9 @@ const HomeScreen = () => {
           <Header navigation={navigation} />
           <Middle navigation={navigation} />
           <Learningkits navigation={navigation} />
-          <SkillBoosters />
-          <LiveClasses />
-          <RecordedClasses />
+          <SkillBoosters navigation={navigation} />
+          <LiveClasses navigation={navigation}/>
+          <RecordedClasses navigation={navigation} />
           <Play />
           <Footer />
         
