@@ -28,16 +28,16 @@ const HomeScreen = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
       <ScrollView>
-        <View>
+        
           <Header navigation={navigation} />
           <Middle navigation={navigation} />
-          <Learningkits />
+          <Learningkits navigation={navigation} />
           <SkillBoosters />
           <LiveClasses />
           <RecordedClasses />
           <Play />
           <Footer />
-        </View>
+        
       </ScrollView>
     </GestureHandlerRootView>
   );
