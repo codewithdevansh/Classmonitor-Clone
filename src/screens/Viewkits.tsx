@@ -12,8 +12,11 @@ const Viewkits = ({navigation} : ViewkitsProps) => {
     
         <View>
             <View style={styles.headercontainer}>
+                <TouchableOpacity onPress={() => navigation.navigate('MainTabs')}
+                    style={{alignSelf:'center'}}>
         <Image source ={(require('../assets/close.png'))}
         style={styles.closeimg}/>
+        </TouchableOpacity>
       <Text style={{color:'white', fontSize:18, fontWeight:'bold', alignSelf:'center', marginLeft:110}}>Learning Kits</Text>
       </View>
       <ScrollView>
@@ -81,7 +84,8 @@ const styles = StyleSheet.create({
     },
     lkbuttonContainer: {
         alignSelf:'center',
-        paddingTop:15
+        paddingTop:15,
+        paddingBottom:5
          // Space between horizontal components
       },
       lkbutton: {
