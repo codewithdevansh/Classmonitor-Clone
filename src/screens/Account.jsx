@@ -96,25 +96,34 @@ const Account = () => {
         </View>
         <View style={{flexDirection:'column', height:300,width:'100%', paddingTop:40,alignItems:'center'}}>
           <View style={{flexDirection:'row', marginLeft:15}}>
+            <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
         <Image
                   source={require('../assets/instagram.png')}
                   style={{ width: 35, height: 35, marginRight:40  }}
                 />
+                </TouchableOpacity>
+                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
                 <Image
                   source={require('../assets/youtube1.png')}
                   style={{ width: 35, height: 35, marginRight:40}}
                 />
+                </TouchableOpacity>
+                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
                 <Image
                   source={require('../assets/facebook.png')}
                   style={{ width: 35, height: 35,marginRight:40 }}
                 />
+                </TouchableOpacity>
+                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
                 <Image
                   source={require('../assets/linkedin.png')}
                   style={{ width: 35, height: 35, marginRight:40 }}
                 />
+                </TouchableOpacity>
           </View>
 
-          <View style={{flexDirection:'row', paddingTop:20}}>
+          <View >
+            <TouchableOpacity style={{height:40,width:'100', flexDirection:'row', marginTop:40}}>
             <Image
                       source={require('../assets/logout.png')}
                       style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}
@@ -122,9 +131,9 @@ const Account = () => {
                     <Text style={{marginTop:12,marginLeft:10}}>
                       Logout
                     </Text>
-
+                    </TouchableOpacity>
           </View>
-          <Text style={{paddingTop:30, fontWeight:'300'}}> V - 5.1.6</Text>
+          <Text style={{paddingTop:40, fontWeight:'300'}}> V - 5.1.6</Text>
           <Text style={{fontWeight:'300'}}> Crafted with love in India</Text>
 
         </View>
