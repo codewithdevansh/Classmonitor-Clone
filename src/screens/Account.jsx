@@ -80,7 +80,7 @@ const Account = () => {
             </View>
             <View style={{ backgroundColor: 'grey', height: 1, marginLeft: 55, width: '78%', marginTop: 'auto' }}></View>
           </TouchableOpacity>
-          <TouchableOpacity style={{ width: '100%', height: 79, justifyContent: 'center', backgroundColor: 'white',borderTopLeftRadius:25,borderTopRightRadius:25 }}>
+          <TouchableOpacity style={{ width: '100%', height: 79, justifyContent: 'center', backgroundColor: 'white',borderBottomLeftRadius:25,borderBottomRightRadius:25 }}>
             <View style={{ flexDirection: 'row' }}>
               <Image
                 source={require('../assets/person.png')}
@@ -93,6 +93,40 @@ const Account = () => {
             </View>
             <View style={{ backgroundColor: 'grey', height: 1, marginLeft: 55, width: '78%', marginTop: 'auto' }}></View>
           </TouchableOpacity>
+        </View>
+        <View style={{flexDirection:'column', height:300,width:'100%', paddingTop:40,alignItems:'center'}}>
+          <View style={{flexDirection:'row', marginLeft:15}}>
+        <Image
+                  source={require('../assets/instagram.png')}
+                  style={{ width: 35, height: 35, marginRight:40  }}
+                />
+                <Image
+                  source={require('../assets/youtube1.png')}
+                  style={{ width: 35, height: 35, marginRight:40}}
+                />
+                <Image
+                  source={require('../assets/facebook.png')}
+                  style={{ width: 35, height: 35,marginRight:40 }}
+                />
+                <Image
+                  source={require('../assets/linkedin.png')}
+                  style={{ width: 35, height: 35, marginRight:40 }}
+                />
+          </View>
+
+          <View style={{flexDirection:'row', paddingTop:20}}>
+            <Image
+                      source={require('../assets/logout.png')}
+                      style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}
+                    />
+                    <Text style={{marginTop:12,marginLeft:10}}>
+                      Logout
+                    </Text>
+
+          </View>
+          <Text style={{paddingTop:30, fontWeight:'300'}}> V - 5.1.6</Text>
+          <Text style={{fontWeight:'300'}}> Crafted with love in India</Text>
+
         </View>
       </View>
     </ScrollView>
