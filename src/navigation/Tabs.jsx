@@ -29,7 +29,7 @@ const Tabs   = () => {
             <Tab.Screen name="HomeScreen" component={HomeScreen}
             options = {{ 
                 tabBarIcon: ({focused}) => (
-                    <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
+                    <View style={{alignItems: 'center', justifyContent: 'center', top: 10,headerShown:false}}>
                          <Image source={require('../assets/pencil1.png')}style={styles.page1}/>
                     </View>
                 )
@@ -56,7 +56,7 @@ const Tabs   = () => {
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/user.png')}style={styles.page1}/>
                     </View>
-                )
+                ),headerShown:false
                 }}/>
         </Tab.Navigator>
     )
