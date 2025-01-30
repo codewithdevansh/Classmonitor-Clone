@@ -9,6 +9,7 @@ import Viewkits from '../screens/Viewkits';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Adminhome from '../screens/Adminhome'
 import Help from '../screens/Help'
+import Community from '../screens/Community';
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   Adminhome:undefined;
   CommunityHeader:undefined;
   Help:undefined;
+  Community:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -41,6 +43,8 @@ const RootNavigation = () => {
         <RootStack.Screen name="Viewkits" component={Viewkits} />
 
         <RootStack.Screen name="Help" component={Help} />
+
+        <RootStack.Screen name="Community" component={Community} />
         
          
       </RootStack.Navigator>

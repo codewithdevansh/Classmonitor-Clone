@@ -1,12 +1,18 @@
 import { View, Text , Image, TouchableOpacity} from 'react-native'
 import React from 'react'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/rootNavigation';
 
-const Help = () => {
+type HelpProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Help'>;
+};
+
+const Help = ({navigation}:HelpProps) => {
   return (
     <View style={{backgroundColor:'white',height:1000}}>
     <View style={{flexDirection:'column',backgroundColor:'white'}}>
     <View style={{flexDirection:'row',}}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Community')}>
       <Image
                 source={require('../assets/back.png')}
                 style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}
