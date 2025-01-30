@@ -7,6 +7,8 @@ import HomeScreen from '../screens/HomeScreen';
 import Tabs2 from './Tabs2';
 import Viewkits from '../screens/Viewkits';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import Adminhome from '../screens/Adminhome'
+import Help from '../screens/Help'
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -17,6 +19,9 @@ export type RootStackParamList = {
   MainTabs2:undefined;
   Viewkits:undefined;
   Learningkits:undefined;
+  Adminhome:undefined;
+  CommunityHeader:undefined;
+  Help:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -34,6 +39,8 @@ const RootNavigation = () => {
         <RootStack.Screen name="MainTabs2" component={Tabs2} />
 
         <RootStack.Screen name="Viewkits" component={Viewkits} />
+
+        <RootStack.Screen name="Help" component={Help} />
         
          
       </RootStack.Navigator>

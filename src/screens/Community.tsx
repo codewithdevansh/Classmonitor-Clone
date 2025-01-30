@@ -18,7 +18,7 @@ const Community = () => {
     <GestureHandlerRootView>
    <ScrollView>
     <View>
-      <CommunityHeader/>
+      <CommunityHeader navigation={navigation}/>
       <CommunityMiddle/>
       </View>
    </ScrollView>

@@ -123,7 +123,7 @@ const Account = () => {
           </View>
 
           <View >
-            <TouchableOpacity style={{height:40,width:'100', flexDirection:'row', marginTop:40}}>
+            <TouchableOpacity style={{height:40,  flexDirection:'row', marginTop:40}}>
             <Image
                       source={require('../assets/logout.png')}
                       style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}
