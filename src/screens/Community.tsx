@@ -5,8 +5,14 @@ import { useNavigation } from '@react-navigation/native'
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler'
 import CommunityHeader from '../components/communitycomponents/CommunityHeader'
 import CommunityMiddle from '../components/communitycomponents/CommunityMiddle'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../navigation/rootNavigation'
+
+
+type CommunityNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Community'>;
+
 const Community = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<CommunityNavigationProp>();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -15,11 +21,11 @@ const Community = () => {
   }, [navigation]);
   
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView  >
    <ScrollView>
-    <View>
+    <View >
       <CommunityHeader navigation={navigation}/>
-      <CommunityMiddle/>
+      <CommunityMiddle navigation={navigation}/>
       </View>
    </ScrollView>
    </GestureHandlerRootView>
