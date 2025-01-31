@@ -26,7 +26,6 @@ export type RootStackParamList = {
   Help:undefined;
   Community:undefined;
   Intro:undefined;
-  App:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();

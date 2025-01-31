@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     padding:30,
     justifyContent:'center',
     paddingBottom:10,
+    backgroundColor:'#E2F0F9',
      // Space between horizontal components
   },
   lkbutton: {
