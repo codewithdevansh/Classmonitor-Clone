@@ -1,5 +1,5 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/homescreencomponents/Header';
 import Middle from '../components/homescreencomponents/Middle';
 import Learningkits from '../components/homescreencomponents/Learningkits';
@@ -13,11 +13,13 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { RootStackParamList } from '../navigation/rootNavigation';
+import Age from '../components/homescreencomponents/Age'; // Import the Age component
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'HomeScreen'>;
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
+  const [selectedButton, setSelectedButton] = useState<string>('All'); // State to manage selected button
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -28,16 +30,24 @@ const HomeScreen = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
       <ScrollView>
-        
-          <Header navigation={navigation} />
-          <Middle navigation={navigation} />
-          <Learningkits navigation={navigation} />
-          <SkillBoosters navigation={navigation} />
-          <LiveClasses navigation={navigation}/>
-          <RecordedClasses navigation={navigation} />
-          <Play />
-          <Footer />
-        
+        <Header navigation={navigation} />
+        <Middle
+          navigation={navigation}
+          selectedButton={selectedButton}
+          setSelectedButton={setSelectedButton} // Pass the state and setter to Middle
+        />
+        {selectedButton === 'All' ? (
+          <>
+            <Learningkits navigation={navigation} />
+            <SkillBoosters navigation={navigation} />
+            <LiveClasses navigation={navigation} />
+            <RecordedClasses navigation={navigation} />
+            <Play />
+          </>
+        ) : (
+          <Age /> // Render the Age component when any other button is selected
+        )}
+        <Footer />
       </ScrollView>
     </GestureHandlerRootView>
   );

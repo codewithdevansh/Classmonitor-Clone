@@ -1,31 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, } from 'react-native';
+import React from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
-type middleProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Middle'>;
-};
-const MiddleComponent = ({navigation}: middleProps) => {
-  const [selectedButton, setSelectedButton] = useState<string>('All'); // Default selected button
 
+type MiddleProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Middle'>;
+  selectedButton: string;
+  setSelectedButton: (buttonName: string) => void;
+};
+
+const Middle = ({ navigation, selectedButton, setSelectedButton }: MiddleProps) => {
   // Function to handle button press
   const handleButtonPress = (buttonName: string) => {
-    setSelectedButton(buttonName);
-    if (buttonName === 'All') {
-      navigation.navigate('MainTabs'); // Navigate on "All" button press
-    }
-    if (buttonName === '03years') {
-      navigation.navigate('MainTabs2'); 
-    }
+    setSelectedButton(buttonName); // Update the state in HomeScreen
   };
-  
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={[
           styles.button1,
-          selectedButton === 'All' && styles.buttonSelected, // Apply selected style if 'All' is selected
+          selectedButton === 'All' && styles.buttonSelected,
         ]}
         onPress={() => handleButtonPress('All')}>
         <Text style={styles.alltext}>All</Text>
@@ -33,7 +28,7 @@ const MiddleComponent = ({navigation}: middleProps) => {
       <TouchableOpacity
         style={[
           styles.button,
-          selectedButton === '03years' && styles.buttonSelected, // Apply selected style if 'All' is selected
+          selectedButton === '03years' && styles.buttonSelected,
         ]}
         onPress={() => handleButtonPress('03years')}>
         <Text style={styles.alltext}>0-3 Years</Text>
@@ -41,20 +36,19 @@ const MiddleComponent = ({navigation}: middleProps) => {
       <TouchableOpacity
         style={[
           styles.button,
-          selectedButton === '03years' && styles.buttonSelected, // Apply selected style if 'All' is selected
+          selectedButton === '36years' && styles.buttonSelected,
         ]}
-        onPress={() => handleButtonPress('03years')}>
+        onPress={() => handleButtonPress('36years')}>
         <Text style={styles.alltext}>3-6 Years</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[
           styles.button,
-          selectedButton === '03years' && styles.buttonSelected, // Apply selected style if 'All' is selected
+          selectedButton === '68years' && styles.buttonSelected,
         ]}
-        onPress={() => handleButtonPress('03years')}>
+        onPress={() => handleButtonPress('68years')}>
         <Text style={styles.alltext}>6-8 Years</Text>
       </TouchableOpacity>
-      
     </View>
   );
 };
@@ -70,7 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 10,
-    width: 60
+    width: 60,
   },
   button: {
     backgroundColor: 'white',
@@ -88,4 +82,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MiddleComponent;
+export default Middle;

@@ -47,6 +47,7 @@ const Tabs = () => {
               <Image source={require('../assets/users.png')} style={styles.page1} />
             </View>
           ),
+          headerShown:false,
         }}
       />
       <Tab.Screen
@@ -58,6 +59,7 @@ const Tabs = () => {
               <Image source={require('../assets/youtube.png')} style={styles.page1} />
             </View>
           ),
+          headerShown:false
         }}
       />
       <Tab.Screen
