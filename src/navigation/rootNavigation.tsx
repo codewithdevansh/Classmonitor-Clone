@@ -11,6 +11,7 @@ import Adminhome from '../screens/Adminhome'
 import Help from '../screens/Help'
 import Community from '../screens/Community';
 import Intro from '../screens/Intro';
+import Verify from '../screens/Verify';
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -26,6 +27,8 @@ export type RootStackParamList = {
   Help:undefined;
   Community:undefined;
   Intro:undefined;
+  Verify:undefined;
+  LoginScreen:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -50,7 +53,7 @@ const RootNavigation = () => {
 
         <RootStack.Screen name="Community" component={Community} />
 
-        
+        <RootStack.Screen name="Verify" component={Verify} />
         
          
       </RootStack.Navigator>

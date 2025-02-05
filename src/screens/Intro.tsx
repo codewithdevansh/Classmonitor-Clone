@@ -14,7 +14,7 @@ const Intro = ({navigation}:IntroProps) => {
      useEffect(() => {
         setTimeout(() =>{
       navigation.navigate('MainTabs');
-    }, 500);
+    }, 200);
      
     }, []);
     
