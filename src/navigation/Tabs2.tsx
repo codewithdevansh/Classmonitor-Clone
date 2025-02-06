@@ -35,7 +35,8 @@ const Tabs2   = () => {
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/pencil1.png')}style={styles.page1}/>
                     </View>
-                )
+                ),
+                headerShown:false
                 }}  />
             <Tab.Screen 
             name="Community" 
@@ -45,28 +46,32 @@ const Tabs2   = () => {
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/users.png')}style={styles.page1}/>
                     </View>
-                )
+                ),
+                headerShown:false
                 }}/>
                  <Tab.Screen name="Play" component={PlayScreen}options = {{ 
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/youtube.png')}style={styles.page1}/>
                     </View>
-                )
+                ),
+                headerShown:false
                 }}/>
             <Tab.Screen name="Play2" component={PlayScreen}options = {{ 
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/youtube.png')}style={styles.page1}/>
                     </View>
-                )
+                ),
+                headerShown:false
                 }}/>
             <Tab.Screen name="Account" component={AccountStack}options = {{ 
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/user.png')}style={styles.page1}/>
                     </View>
-                )
+                ),
+                headerShown:false
                 }}/>
         </Tab.Navigator>
     )
