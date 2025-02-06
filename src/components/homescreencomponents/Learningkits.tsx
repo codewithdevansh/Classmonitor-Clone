@@ -26,7 +26,8 @@ const Learningkits = ({navigation}: LearningkitsProps) => {
 
       <ScrollView horizontal={true} style={styles.horizon} showsHorizontalScrollIndicator={false}>
         <View style={styles.lkbuttonContainer}>
-          <TouchableOpacity style={styles.lkbutton}>
+          <TouchableOpacity style={styles.lkbutton}
+          onPress={() => navigation.navigate('LearningSection')}>
             <Image 
               source={require('../../assets/learningkitimage.png')}
               style={styles.lkimage} 
