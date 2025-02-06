@@ -37,7 +37,7 @@ const Verify = ({ navigation }: VerifyProps) => {
                           borderRadius: 10,
                           justifyContent: 'center'
                         }}
-                        onPress={() => navigation.navigate('MainTabs')}>
+                        onPress={() => navigation.navigate('MainTabs2')}>
                         <Text
                           style={{
                             color: 'White',

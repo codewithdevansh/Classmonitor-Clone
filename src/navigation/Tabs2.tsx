@@ -6,6 +6,9 @@ import PlayScreen from "../screens/PlayScreen";
 import Account from "../screens/Account";
 import { StyleSheet } from "react-native";
 import { View,Image } from "react-native";
+import CommunityStack from "./CommunityStack";
+import AccountStack from "./AccountStack";
+import LoginStack from "./LoginStack";
 const Tab = createBottomTabNavigator();
 
 const Tabs2   = () => {
@@ -26,7 +29,7 @@ const Tabs2   = () => {
                 }
             }}
             >
-            <Tab.Screen name="HomeScreen2" component={HomeScreen2}
+            <Tab.Screen name="HomeScreen2" component={LoginStack}
             options = {{ 
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -36,7 +39,7 @@ const Tabs2   = () => {
                 }}  />
             <Tab.Screen 
             name="Community" 
-            component={Community}
+            component={CommunityStack}
             options = {{ 
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
@@ -44,14 +47,21 @@ const Tabs2   = () => {
                     </View>
                 )
                 }}/>
-            <Tab.Screen name="Play" component={PlayScreen}options = {{ 
+                 <Tab.Screen name="Play" component={PlayScreen}options = {{ 
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/youtube.png')}style={styles.page1}/>
                     </View>
                 )
                 }}/>
-            <Tab.Screen name="Account" component={Account}options = {{ 
+            <Tab.Screen name="Play2" component={PlayScreen}options = {{ 
+                tabBarIcon: ({focused}) => (
+                    <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
+                         <Image source={require('../assets/youtube.png')}style={styles.page1}/>
+                    </View>
+                )
+                }}/>
+            <Tab.Screen name="Account" component={AccountStack}options = {{ 
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
                          <Image source={require('../assets/user.png')}style={styles.page1}/>

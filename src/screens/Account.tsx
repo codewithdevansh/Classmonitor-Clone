@@ -1,8 +1,14 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/rootNavigation';
 
-const Account = () => {
+type AccountProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Account'>;
+};
+
+const Account = ({navigation}: AccountProps) => {
   return (
     <ScrollView >
       <View style={{ flexDirection: 'column', alignItems: 'center',backgroundColor:'#e4f3f9' }}>
@@ -67,7 +73,8 @@ const Account = () => {
             </View>
             <View style={{ backgroundColor: 'grey', height: 1, marginLeft: 55, width: '78%', marginTop: 'auto' }}></View>
           </TouchableOpacity>
-          <TouchableOpacity style={{ width: '100%', height: 79, justifyContent: 'center', backgroundColor: 'white' }}>
+          <TouchableOpacity style={{ width: '100%', height: 79, justifyContent: 'center', backgroundColor: 'white' }}
+          onPress={() => navigation.navigate('Help2')}>
             <View style={{ flexDirection: 'row' }}>
               <Image
                 source={require('../assets/contact.png')}

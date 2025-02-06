@@ -3,16 +3,16 @@ import React from 'react'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/rootNavigation';
 
-type HelpProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Help'>;
+type Help2Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Help2'>;
 };
 
-const Help = ({navigation}:HelpProps) => {
+const Help2 = ({navigation}:Help2Props) => {
   return (
     <View style={{backgroundColor:'white',height:1000}}>
     <View style={{flexDirection:'column',backgroundColor:'white'}}>
     <View style={{flexDirection:'row',}}>
-      <TouchableOpacity onPress={() => navigation.navigate('Community')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Account')}>
       <Image
                 source={require('../assets/back.png')}
                 style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}
@@ -61,4 +61,4 @@ const Help = ({navigation}:HelpProps) => {
   )
 }
 
-export default Help
+export default Help2

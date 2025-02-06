@@ -12,6 +12,8 @@ import Help from '../screens/Help'
 import Community from '../screens/Community';
 import Intro from '../screens/Intro';
 import Verify from '../screens/Verify';
+import Account from '../screens/Account';
+import Help2 from '../screens/Help2';
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -29,6 +31,8 @@ export type RootStackParamList = {
   Intro:undefined;
   Verify:undefined;
   LoginScreen:undefined;
+  Account:undefined;
+  Help2:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -54,7 +58,10 @@ const RootNavigation = () => {
         <RootStack.Screen name="Community" component={Community} />
 
         <RootStack.Screen name="Verify" component={Verify} />
-        
+
+        <RootStack.Screen name="Account" component={Account} />
+
+        <RootStack.Screen name="Help2" component={Help2} />
          
       </RootStack.Navigator>
       </GestureHandlerRootView>

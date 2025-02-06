@@ -6,6 +6,7 @@ import CommunityStack from '../navigation/CommunityStack'; // Import the nested 
 import PlayScreen from '../screens/PlayScreen';
 import Account from '../screens/Account';
 import { StyleSheet, View, Image } from 'react-native';
+import AccountStack from './AccountStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -64,7 +65,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Account"
-        component={Account}
+        component={AccountStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
