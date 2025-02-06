@@ -14,6 +14,7 @@ import Intro from '../screens/Intro';
 import Verify from '../screens/Verify';
 import Account from '../screens/Account';
 import Help2 from '../screens/Help2';
+import Help3 from '../screens/Help3'
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -33,6 +34,7 @@ export type RootStackParamList = {
   LoginScreen:undefined;
   Account:undefined;
   Help2:undefined;
+  Help3: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -62,6 +64,8 @@ const RootNavigation = () => {
         <RootStack.Screen name="Account" component={Account} />
 
         <RootStack.Screen name="Help2" component={Help2} />
+
+        <RootStack.Screen name="Help3" component={Help3} />
          
       </RootStack.Navigator>
       </GestureHandlerRootView>

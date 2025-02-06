@@ -5,11 +5,11 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
 
 
-type HeaderProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreen'>;
+type Header2Props = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreen2'>;
 };
 
-const Header2 = ({ navigation }: HeaderProps) => {
+const Header2 = ({ navigation }: Header2Props) => {
   return (
     <View>
       <LinearGradient
@@ -23,8 +23,8 @@ const Header2 = ({ navigation }: HeaderProps) => {
           style={{ width: 35, height: 35, marginLeft: 10, marginTop: 10 }}
         />
         <TouchableOpacity style={styles.help}
-              onPress={() => navigation.navigate('Help')}>
-                <Image source={require('../assets/headphones.png')}
+              onPress={() => navigation.navigate('Help3')}>
+                <Image source={require('../../assets/headphones.png')}
                 style={{height:17,width:17, marginRight:10}} />
                 <Text style={styles.helpText}>Help</Text>
               </TouchableOpacity>
@@ -85,6 +85,8 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     height:30,
     width:80,
+    marginLeft:300,
+    marginTop:-32
   },
   helpText: {
     fontWeight: 'bold',

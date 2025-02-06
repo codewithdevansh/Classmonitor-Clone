@@ -1,6 +1,6 @@
 import { View, ScrollView, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
-import Header2 from '../components/homescreencomponents/Header';
+import Header2 from '../components/homescreencomponents/Header2';
 import Middle from '../components/homescreencomponents/Middle';
 import Learningkits from '../components/homescreencomponents/Learningkits';
 import SkillBoosters from '../components/homescreencomponents/SkillBoosters';
