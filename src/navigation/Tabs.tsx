@@ -98,11 +98,11 @@ const Tabs = () => {
           }}
         />
       </Tab.Navigator>
+      <CustomAlert
         visible={alertVisible}
-        visible={setAlertVisible}
         onClose={() => setAlertVisible(false)}
         onLogin={handleLogin}
-      /{'>'}
+      />
     </>
   );
 };
@@ -130,7 +130,3 @@ const styles = StyleSheet.create({
 });
 
 export default Tabs;
-
-function setAlertVisible(arg0: boolean) {
-  throw new Error('Function not implemented.');
-}
