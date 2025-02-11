@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { CountryPicker } from "react-native-country-codes-picker";
 import { useNavigation } from '@react-navigation/native';
@@ -17,6 +17,14 @@ const Login = ({ navigation }: LoginScreenProps) => {
   const [number, onChangeNumber] = React.useState('');
   const [show, setShow] = useState(false);
   const [countryCode, setCountryCode] = useState('');
+  const handleContinue = () => {
+    if (number.length === 10 && !isNaN(Number(number))) {
+      navigation.navigate('Verify', { mobileNumber: number });
+    } else {
+      Alert.alert('Invalid Number', 'Please enter a valid 10-digit mobile number.');
+    }
+  };
+
 
 
 
@@ -64,7 +72,7 @@ const Login = ({ navigation }: LoginScreenProps) => {
           borderRadius: 10,
           justifyContent: 'center'
         }}
-        onPress={() => navigation.navigate('Verify')}>
+        onPress={handleContinue}>
         <Text
           style={{
             color: 'black',

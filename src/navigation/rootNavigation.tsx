@@ -32,7 +32,7 @@ export type RootStackParamList = {
   Help:undefined;
   Community:undefined;
   Intro:undefined;
-  Verify:undefined;
+  Verify: { mobileNumber: string };
   LoginScreen:undefined;
   Account:undefined;
   Help2:undefined;
