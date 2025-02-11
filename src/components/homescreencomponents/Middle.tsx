@@ -65,17 +65,22 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     width: 60,
+    height: 35,
+    elevation: 5,
   },
   button: {
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 10,
-    width: 82,
+    width: 95,
+    height: 35,
+    elevation: 5,
   },
   alltext: {
     color: 'black',
     textAlign: 'center',
     fontWeight: 'bold',
+    marginTop: -2,
   },
   buttonSelected: {
     backgroundColor: 'red', // Change to the desired selected color

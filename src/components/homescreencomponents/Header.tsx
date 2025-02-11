@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
@@ -10,6 +10,26 @@ type HeaderProps = {
 };
 
 const Header = ({ navigation }: HeaderProps) => {
+
+    const scrollViewRef = useRef<ScrollView>(null);
+    const [scrollDirection, setScrollDirection] = useState<'forward' | 'backward'>('forward');
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        if (scrollViewRef.current) {
+          if (scrollDirection === 'forward') {
+            scrollViewRef.current.scrollToEnd({ animated: true });
+            setScrollDirection('backward');
+          } else {
+            scrollViewRef.current.scrollTo({ x: 0, animated: true });
+            setScrollDirection('forward');
+          }
+        }
+      }, 3000); // Adjust the interval as needed
+  
+      return () => clearInterval(interval);
+    }, [scrollDirection]);
+  
   return (
     <View>
       <LinearGradient
@@ -29,12 +49,20 @@ const Header = ({ navigation }: HeaderProps) => {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
         <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
-        <View style ={{borderRadius:40}}>
+        <ScrollView
+        horizontal={true}
+        style={styles.horizon}
+        showsHorizontalScrollIndicator={false}
+        ref={scrollViewRef}>
         <Image
           source={require('../../assets/headerimage.png')}
           style={styles.headerimage}
         />
-        </View>
+        <Image
+          source={require('../../assets/headerimage.png')}
+          style={styles.headerimage}
+        />
+        </ScrollView>
       </LinearGradient>
     </View>
   );
@@ -66,11 +94,14 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#AFD6EF',
   },
+  horizon: {
+    marginTop: 20,
+  },
   headerimage: {
     width: 350,
     height: '100%',
     resizeMode: 'contain',
-    marginLeft: 10,
+    marginLeft: 20,
     marginTop: 5,
     maxWidth: 350,
     maxHeight: 250,
