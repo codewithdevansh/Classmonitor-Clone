@@ -14,7 +14,7 @@ const LearningSection = ({navigation}: LearningSectionProps) => {
     <GestureHandlerRootView style={{flex:1}}>
     <View style={{flex:1, backgroundColor:'purple', }}>
       <StatusBar style="light"/>
-      <TouchableOpacity onPress={() => navigation.navigate('MainTabs')}>
+      <TouchableOpacity onPress={() => navigation.navigate('MainTabs2')}>
                       <Image
                           source={require('../assets/back.png')}
                           style={{ width: 25, height: 25, marginLeft: 20, marginTop: 20 }}
@@ -24,7 +24,7 @@ const LearningSection = ({navigation}: LearningSectionProps) => {
                             onPress={() => navigation.navigate('Help4')}>
                             <Image source={require('../assets/headphones.png')}
                               style={{ height: 17, width: 17, marginRight: 10 }} />
-                            <Text style={styles.helpText}>Help</Text>
+                            <Text style={{fontWeight:'bold',color:'black'}}>Help</Text>
                           </TouchableOpacity>
                           <Image 
                                         source={require('../assets/learningkitimage.png')}
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: 390,
     height: 310,
-    marginTop: 60,
+    marginTop: 40,
     marginLeft: 10,
   },
 })
