@@ -29,10 +29,12 @@ const Header = ({ navigation }: HeaderProps) => {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
         <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
+        <View style ={{borderRadius:40}}>
         <Image
           source={require('../../assets/headerimage.png')}
           style={styles.headerimage}
         />
+        </View>
       </LinearGradient>
     </View>
   );
@@ -66,15 +68,13 @@ const styles = StyleSheet.create({
   },
   headerimage: {
     width: 350,
-    height: '800%',
+    height: '100%',
     resizeMode: 'contain',
     marginLeft: 10,
-    marginTop: 10,
-    marginBottom: 10,
-    justifyContent: 'center',
+    marginTop: 5,
     maxWidth: 350,
     maxHeight: 250,
-    borderRadius:50,
+    borderRadius:40,
   },
 });
 

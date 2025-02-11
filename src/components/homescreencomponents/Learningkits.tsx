@@ -1,17 +1,32 @@
-
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import React from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
-import viewkits from '../../screens/Viewkits';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useRef, useEffect, useState } from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
-
 
 type LearningkitsProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Learningkits'>;
 };
 
-const Learningkits = ({navigation}: LearningkitsProps) => {
+const Learningkits = ({ navigation }: LearningkitsProps) => {
+  const scrollViewRef = useRef<ScrollView>(null);
+  const [scrollDirection, setScrollDirection] = useState<'forward' | 'backward'>('forward');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollViewRef.current) {
+        if (scrollDirection === 'forward') {
+          scrollViewRef.current.scrollToEnd({ animated: true });
+          setScrollDirection('backward');
+        } else {
+          scrollViewRef.current.scrollTo({ x: 0, animated: true });
+          setScrollDirection('forward');
+        }
+      }
+    }, 3000); // Adjust the interval as needed
+
+    return () => clearInterval(interval);
+  }, [scrollDirection]);
+
   return (
     <View style={styles.container}>
       <Image
@@ -24,13 +39,20 @@ const Learningkits = ({navigation}: LearningkitsProps) => {
         child's learning needs for a full year
       </Text>
 
-      <ScrollView horizontal={true} style={styles.horizon} showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        horizontal={true}
+        style={styles.horizon}
+        showsHorizontalScrollIndicator={false}
+        ref={scrollViewRef}
+      >
         <View style={styles.lkbuttonContainer}>
-          <TouchableOpacity style={styles.lkbutton}
-          onPress={() => navigation.navigate('LearningSection')}>
-            <Image 
+          <TouchableOpacity
+            style={styles.lkbutton}
+            onPress={() => navigation.navigate('LearningSection')}
+          >
+            <Image
               source={require('../../assets/learningkitimage.png')}
-              style={styles.lkimage} 
+              style={styles.lkimage}
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
@@ -40,9 +62,9 @@ const Learningkits = ({navigation}: LearningkitsProps) => {
 
         <View style={styles.lkbuttonContainer}>
           <TouchableOpacity style={styles.lkbutton}>
-            <Image 
+            <Image
               source={require('../../assets/learningkitimage.png')}
-              style={styles.lkimage} 
+              style={styles.lkimage}
             />
             <Text style={styles.lkimagetext}>PlayGroup Learning Kit</Text>
             <Text style={styles.lkimagestext}>Age 1-2.5 years</Text>
@@ -51,8 +73,10 @@ const Learningkits = ({navigation}: LearningkitsProps) => {
         </View>
       </ScrollView>
 
-      <TouchableOpacity style={styles.viewbutton}
-      onPress={() => navigation.navigate('Viewkits')}>
+      <TouchableOpacity
+        style={styles.viewbutton}
+        onPress={() => navigation.navigate('Viewkits')}
+      >
         <Text style={styles.viewtext}>View All Learning Kits</Text>
         <Image source={require('../../assets/next.png')} style={styles.next} />
       </TouchableOpacity>
@@ -66,8 +90,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#E2F0F9',
-    paddingTop: 0, 
-    paddingBottom:25// Adjusted for better alignment
+    paddingTop: 0,
+    paddingBottom: 25, // Adjusted for better alignment
   },
   LearningKitsLogo: {
     width: '25%',
