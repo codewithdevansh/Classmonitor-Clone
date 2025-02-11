@@ -1,27 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { RootStackParamList } from '../navigation/rootNavigation'; // Import the type for the navigation parameter
+import { View, Image, TouchableOpacity, Animated } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
-import CommunityStack from '../navigation/CommunityStack'; // Import the nested stack navigator
+import CommunityStack from '../navigation/CommunityStack';
 import PlayScreen from '../screens/PlayScreen';
-import Account from '../screens/Account';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import AccountStack from './AccountStack';
-import CustomAlert from '../components/CustomAlert'; // Import the custom alert component
+import CustomAlert from '../components/CustomAlert';
+import * as Animatable from 'react-native-animatable';
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   const [alertVisible, setAlertVisible] = useState(false);
-
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-
-  const handleLogin = () => {
-    setAlertVisible(false);
-    // Navigate to the login screen
-    navigation.navigate('Login');
-  };
 
   return (
     <>
@@ -37,7 +27,6 @@ const Tabs = () => {
             backgroundColor: '#ffffff',
             borderRadius: 15,
             height: 45,
-            ...styles.shadow,
           },
         }}
       >
@@ -46,20 +35,26 @@ const Tabs = () => {
           component={HomeScreen}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
-                <Image source={require('../assets/pencil1.png')} style={styles.page1} />
-              </View>
+              <Animatable.View 
+                animation={focused ? "bounceIn" : "fadeIn"} 
+                duration={500} 
+                style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}
+              >
+                <Image source={require('../assets/pencil1.png')} style={{ width: 25, height: 25, tintColor: focused ? 'blue' : 'black',marginBottom:17, }} />
+                
+              </Animatable.View>
             ),
           }}
         />
         <Tab.Screen
           name="CommunityStack"
-          component={CommunityStack} // Use the nested stack navigator
+          component={CommunityStack}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
-                <Image source={require('../assets/users.png')} style={styles.page1} />
-              </View>
+              <Animatable.View animation={focused ? "zoomIn" : "fadeIn"} duration={500}>
+                <Animatable.Text> </Animatable.Text>
+                <Image source={require('../assets/users.png')} style={{ width: 25, height: 25, tintColor: focused ? 'blue' : 'black' ,marginBottom:17,}} />
+              </Animatable.View>
             ),
             headerShown: false,
           }}
@@ -69,9 +64,9 @@ const Tabs = () => {
           component={PlayScreen}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
-                <Image source={require('../assets/youtube.png')} style={styles.page1} />
-              </View>
+              <Animatable.View animation={focused ? "pulse" : "fadeIn"} duration={500}>
+                <Image source={require('../assets/youtube.png')} style={{ width: 25, height: 25, tintColor: focused ? 'blue' : 'black',}} />
+              </Animatable.View>
             ),
             headerShown: false,
           }}
@@ -81,9 +76,9 @@ const Tabs = () => {
           component={AccountStack}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
-                <Image source={require('../assets/user.png')} style={styles.page1} />
-              </View>
+              <Animatable.View animation={focused ? "shake" : "fadeIn"} duration={500}>
+                <Image source={require('../assets/user.png')} style={{ width: 25, height: 25, tintColor: focused ? 'blue' : 'black' }} />
+              </Animatable.View>
             ),
             headerShown: false,
             tabBarButton: (props) => (
@@ -92,7 +87,6 @@ const Tabs = () => {
                 onPress={() => {
                   setAlertVisible(true);
                 }}
-                delayLongPress={undefined} // Ensure delayLongPress is either a number or undefined
               />
             ),
           }}
@@ -101,32 +95,9 @@ const Tabs = () => {
       <CustomAlert
         visible={alertVisible}
         onClose={() => setAlertVisible(false)}
-        onLogin={handleLogin}
       />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#7F5DF0',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5,
-  },
-  page1: {
-    width: 20,
-    height: 20,
-    resizeMode: 'contain',
-    tintColor: 'black',
-    justifyContent: 'center',
-    marginTop: -15,
-    marginLeft: -15,
-  },
-});
 
 export default Tabs;
