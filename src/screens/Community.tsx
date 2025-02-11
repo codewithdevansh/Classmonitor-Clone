@@ -32,7 +32,7 @@ const Community = () => {
             {/* Profile Section */}
             <View style={styles.profileSection}>
               <Image
-                source={{ uri: "https://via.placeholder.com/40" }} // Replace with actual profile picture
+                source={require('../assets/avatar.png')} // Replace with actual profile picture
                 style={styles.profilePic}
               />
               <View>
@@ -48,7 +48,7 @@ const Community = () => {
 
             {/* Image Display */}
             <Image
-              source={{ uri: "file:///mnt/data/WhatsApp Image 2025-02-11 at 12.17.13 PM.jpeg" }}
+              source={require('../assets/random.png')}
               style={styles.postImage}
             />
 
@@ -76,7 +76,7 @@ const Community = () => {
             {/* Profile Section */}
             <View style={styles.profileSection}>
               <Image
-                source={{ uri: "https://via.placeholder.com/40" }} // Replace with actual profile picture
+                source={require('../assets/avatar.png')} // Replace with actual profile picture
                 style={styles.profilePic}
               />
               <View>
@@ -92,7 +92,7 @@ const Community = () => {
 
             {/* Image Display */}
             <Image
-              source={{ uri: "file:///mnt/data/WhatsApp Image 2025-02-11 at 12.17.13 PM.jpeg" }}
+              source={require('../assets/random.png')}
               style={styles.postImage}
             />
 
@@ -120,7 +120,7 @@ const Community = () => {
             {/* Profile Section */}
             <View style={styles.profileSection}>
               <Image
-                source={{ uri: "https://via.placeholder.com/40" }} // Replace with actual profile picture
+                source={require('../assets/avatar.png')} // Replace with actual profile picture
                 style={styles.profilePic}
               />
               <View>
@@ -136,7 +136,7 @@ const Community = () => {
 
             {/* Image Display */}
             <Image
-              source={{ uri: "file:///mnt/data/WhatsApp Image 2025-02-11 at 12.17.13 PM.jpeg" }}
+              source={require('../assets/random.png')}
               style={styles.postImage}
             />
 
