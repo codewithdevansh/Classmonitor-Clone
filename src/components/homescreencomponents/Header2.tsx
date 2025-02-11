@@ -23,11 +23,11 @@ const Header2 = ({ navigation }: Header2Props) => {
           style={{ width: 35, height: 35, marginLeft: 10, marginTop: 10 }}
         />
         <TouchableOpacity style={styles.help}
-              onPress={() => navigation.navigate('Help3')}>
-                <Image source={require('../../assets/headphones.png')}
-                style={{height:17,width:17, marginRight:10}} />
-                <Text style={styles.helpText}>Help</Text>
-              </TouchableOpacity>
+          onPress={() => navigation.navigate('Help3')}>
+          <Image source={require('../../assets/headphones.png')}
+            style={{ height: 17, width: 17, marginRight: 10 }} />
+          <Text style={styles.helpText}>Help</Text>
+        </TouchableOpacity>
         <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
         <Image
           source={require('../../assets/headerimage.png')}
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     maxWidth: 350,
     maxHeight: 250,
-    borderRadius:50,
+    borderRadius: 50,
   },
   help: {
     backgroundColor: 'white',
@@ -82,16 +82,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 20,
     elevation: 10,
-    flexDirection:'row',
-    height:30,
-    width:80,
-    marginLeft:300,
-    marginTop:-32
+    flexDirection: 'row',
+    height: 30,
+    width: 80,
+    marginLeft: 300,
+    marginTop: -32
   },
   helpText: {
     fontWeight: 'bold',
     color: 'black',
-  
+
   },
 });
 
