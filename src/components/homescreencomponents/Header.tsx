@@ -1,35 +1,30 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
-
 
 type HeaderProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreen'>;
 };
 
 const Header = ({ navigation }: HeaderProps) => {
+  const scrollViewRef = useRef<ScrollView>(null);
 
-    const scrollViewRef = useRef<ScrollView>(null);
-    const [scrollDirection, setScrollDirection] = useState<'forward' | 'backward'>('forward');
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        if (scrollViewRef.current) {
-          if (scrollDirection === 'forward') {
-            scrollViewRef.current.scrollToEnd({ animated: true });
-            setScrollDirection('backward');
-          } else {
-            scrollViewRef.current.scrollTo({ x: 0, animated: true });
-            setScrollDirection('forward');
-          }
-        }
-      }, 3000); // Adjust the interval as needed
-  
-      return () => clearInterval(interval);
-    }, [scrollDirection]);
-  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollViewRef.current) {
+        scrollViewRef.current.scrollTo({ x: 350, animated: true });
+
+        setTimeout(() => {
+          scrollViewRef.current?.scrollTo({ x: 0, animated: false });
+        }, 1000); 
+      }
+    }, 3000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <View>
       <LinearGradient
@@ -38,30 +33,23 @@ const Header = ({ navigation }: HeaderProps) => {
         colors={['#FAD1D1', '#F8B4B4', '#FDB5B5']}
         style={[{ height: 450, alignItems: 'flex-start' }, styles.container]}
       >
-        <Image
-          source={require('../../assets/logo.png')}
-          style={{ width: 35, height: 35, marginLeft: 10, marginTop: 10 }}
-        />
-        <TouchableOpacity
-          style={styles.loginbutton}
-          onPress={() => navigation.navigate('Login')}
-        >
+        <Image source={require('../../assets/logo.png')} style={styles.logo} />
+        <TouchableOpacity style={styles.loginbutton} onPress={() => navigation.navigate('Login')}>
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
         <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
+
+        {/* ScrollView for Auto-Scrolling Images */}
         <ScrollView
-        horizontal={true}
-        style={styles.horizon}
-        showsHorizontalScrollIndicator={false}
-        ref={scrollViewRef}>
-        <Image
-          source={require('../../assets/headerimage.png')}
-          style={styles.headerimage}
-        />
-        <Image
-          source={require('../../assets/headerimage.png')}
-          style={styles.headerimage}
-        />
+          horizontal
+          style={styles.horizon}
+          showsHorizontalScrollIndicator={false}
+          ref={scrollViewRef}
+          pagingEnabled
+        >
+          <Image source={require('../../assets/headerimage.png')} style={styles.headerimage} />
+          <Image source={require('../../assets/headerimage.png')} style={styles.headerimage} />
+          <Image source={require('../../assets/headerimage.png')} style={styles.headerimage} />
         </ScrollView>
       </LinearGradient>
     </View>
@@ -69,6 +57,12 @@ const Header = ({ navigation }: HeaderProps) => {
 };
 
 const styles = StyleSheet.create({
+  logo: {
+    width: 35,
+    height: 35,
+    marginLeft: 10,
+    marginTop: 10,
+  },
   HeaderText: {
     fontSize: 25,
     color: 'black',
@@ -82,8 +76,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     width: 100,
-    marginLeft: 270,
-    marginTop: -40,
+    position: 'absolute',
+    right: 20,
+    top: 10,
   },
   loginText: {
     color: 'white',
@@ -99,13 +94,10 @@ const styles = StyleSheet.create({
   },
   headerimage: {
     width: 350,
-    height: '100%',
+    height: 250,
     resizeMode: 'contain',
-    marginLeft: 20,
-    marginTop: 5,
-    maxWidth: 350,
-    maxHeight: 250,
-    borderRadius:40,
+    marginHorizontal: 20,
+    borderRadius: 40,
   },
 });
 

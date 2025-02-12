@@ -79,6 +79,12 @@ const Tabs = () => {
               </Animatable.View>
             ),
             headerShown: false,
+            tabBarButton: (props) => (
+              <TouchableOpacity
+                {...props}
+                onPress={() => setAlertVisible(true)}
+              />
+            ),
           }}
         />
         <Tab.Screen
