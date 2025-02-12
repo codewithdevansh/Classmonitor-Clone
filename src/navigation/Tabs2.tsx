@@ -10,6 +10,7 @@ import CommunityStack from "./CommunityStack";
 import AccountStack from "./AccountStack";
 import LoginStack from "./LoginStack";
 import * as Animatable from 'react-native-animatable';
+import Notification from "../screens/Notification";
 const Tab = createBottomTabNavigator();
 
 
@@ -38,7 +39,7 @@ const Tabs2 = () => {
                                 source={require('../assets/pencil1.png')}
                                 style={[styles.icon, focused && styles.focusedIcon]}
                             />
-                            {focused && <Text style={styles.tabLabel}>Home</Text>}
+                            {focused && <Text style={styles.tabLabel}>Learn</Text>}
                         </Animatable.View>
                     ),
                     headerShown: false,
@@ -85,8 +86,8 @@ const Tabs2 = () => {
                 }}
             />
             <Tab.Screen
-                name="Play2"
-                component={PlayScreen}
+                name="Notification"
+                component={Notification}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Animatable.View
@@ -95,10 +96,10 @@ const Tabs2 = () => {
                             style={[styles.iconContainer, focused && styles.focusedTab]}
                         >
                             <Image
-                                source={require('../assets/youtube.png')}
+                                source={require('../assets/notification.png')}
                                 style={[styles.icon, focused && styles.focusedIcon]}
                             />
-                            {focused && <Text style={styles.tabLabel}>Play</Text>}
+                            {focused && <Text style={styles.tabLabel}>Notification</Text>}
                         </Animatable.View>
                     ),
                     headerShown: false,

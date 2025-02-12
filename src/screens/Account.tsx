@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, Linking } from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -9,6 +9,20 @@ type AccountProps = {
 };
 
 const Account = ({navigation}: AccountProps) => {
+  
+  const openLink = async (url: string) => {
+    try {
+      const supported = await Linking.canOpenURL(url);
+      if (supported) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert("Error", "Can't open this URL");
+      }
+    } catch (error) {
+      Alert.alert("Error", "Something went wrong while opening the link.");
+    }
+  };
+
   return (
     <ScrollView >
       <View style={{ flexDirection: 'column', alignItems: 'center',backgroundColor:'#e4f3f9' }}>
@@ -103,25 +117,25 @@ const Account = ({navigation}: AccountProps) => {
         </View>
         <View style={{flexDirection:'column', height:300,width:'100%', paddingTop:40,alignItems:'center'}}>
           <View style={{flexDirection:'row', marginLeft:15}}>
-            <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
+            <TouchableOpacity style={{width: 35, height: 35, marginRight:40}} onPress={() => openLink('https://www.instagram.com/getclassmonitor/?hl=en')}>
         <Image
                   source={require('../assets/instagram.png')}
                   style={{ width: 35, height: 35, marginRight:40  }}
                 />
                 </TouchableOpacity>
-                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
+                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}} onPress={() => openLink('https://www.youtube.com/@GetClassMonitor')}>
                 <Image
                   source={require('../assets/youtube1.png')}
                   style={{ width: 35, height: 35, marginRight:40}}
                 />
                 </TouchableOpacity>
-                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
+                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}} onPress={() => openLink('https://www.facebook.com/GetClassMonitor/')}>
                 <Image
                   source={require('../assets/facebook.png')}
                   style={{ width: 35, height: 35,marginRight:40 }}
                 />
                 </TouchableOpacity>
-                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}}>
+                <TouchableOpacity style={{width: 35, height: 35, marginRight:40}} onPress={() => openLink('https://www.linkedin.com/company/getclassmonitor/')}>
                 <Image
                   source={require('../assets/linkedin.png')}
                   style={{ width: 35, height: 35, marginRight:40 }}

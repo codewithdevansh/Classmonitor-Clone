@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import CommunityStack from '../navigation/CommunityStack';
 import PlayScreen from '../screens/PlayScreen';
+import Notification from '../screens/Notification';
 import AccountStack from './AccountStack';
 import CustomAlert from '../components/CustomAlert';
 import * as Animatable from 'react-native-animatable';
@@ -35,7 +36,7 @@ const Tabs = () => {
                   source={require('../assets/pencil1.png')}
                   style={[styles.icon, focused && styles.focusedIcon]}
                 />
-                {focused && <Text style={styles.tabLabel}>Home</Text>}
+                {focused && <Text style={styles.tabLabel}>Learn</Text>}
               </Animatable.View>
             ),
           }}

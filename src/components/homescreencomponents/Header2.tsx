@@ -28,7 +28,7 @@ const Header2 = ({ navigation }: Header2Props) => {
             style={{ height: 17, width: 17, marginRight: 10 }} />
           <Text style={styles.helpText}>Help</Text>
         </TouchableOpacity>
-        <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
+        <Text style={styles.HeaderText}>Welcome Devansh!</Text>
         <Image
           source={require('../../assets/headerimage.png')}
           style={styles.headerimage}
