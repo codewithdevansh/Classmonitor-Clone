@@ -39,7 +39,7 @@ const Header = ({ navigation }: HeaderProps) => {
         </TouchableOpacity>
         <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
 
-        {/* ScrollView for Auto-Scrolling Images */}
+        
         <ScrollView
           horizontal
           style={styles.horizon}
