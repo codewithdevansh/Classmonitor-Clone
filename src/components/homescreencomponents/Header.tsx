@@ -1,8 +1,10 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
-import React, { useEffect, useRef } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView, Dimensions } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
+
+const { width } = Dimensions.get('window'); // Get screen width
 
 type HeaderProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreen'>;
@@ -10,20 +12,32 @@ type HeaderProps = {
 
 const Header = ({ navigation }: HeaderProps) => {
   const scrollViewRef = useRef<ScrollView>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const images = [
+    require('../../assets/headerimage.png'),
+    require('../../assets/headerimage.png'),
+    require('../../assets/headerimage.png'),
+  ];
 
+  // Auto-scroll effect
   useEffect(() => {
     const interval = setInterval(() => {
       if (scrollViewRef.current) {
-        scrollViewRef.current.scrollTo({ x: 350, animated: true });
-
-        setTimeout(() => {
-          scrollViewRef.current?.scrollTo({ x: 0, animated: false });
-        }, 1000); 
+        const nextIndex = (activeIndex + 1) % images.length;
+        scrollViewRef.current.scrollTo({ x: nextIndex * width, animated: true });
+        setActiveIndex(nextIndex);
       }
-    }, 3000); 
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [activeIndex]);
+
+  // Track scroll event
+  const handleScroll = (event: any) => {
+    const scrollPosition = event.nativeEvent.contentOffset.x;
+    const index = Math.round(scrollPosition / width);
+    setActiveIndex(index);
+  };
 
   return (
     <View>
@@ -39,18 +53,27 @@ const Header = ({ navigation }: HeaderProps) => {
         </TouchableOpacity>
         <Text style={styles.HeaderText}>Explore the world of fun learning!</Text>
 
-        
+        {/* ScrollView for Auto-Scrolling Images */}
         <ScrollView
           horizontal
-          style={styles.horizon}
+          pagingEnabled
           showsHorizontalScrollIndicator={false}
           ref={scrollViewRef}
-          pagingEnabled
+          onScroll={handleScroll}
+          scrollEventThrottle={16}
+          style={styles.horizon}
         >
-          <Image source={require('../../assets/headerimage.png')} style={styles.headerimage} />
-          <Image source={require('../../assets/headerimage.png')} style={styles.headerimage} />
-          <Image source={require('../../assets/headerimage.png')} style={styles.headerimage} />
+          {images.map((img, index) => (
+            <Image key={index} source={img} style={styles.headerimage} />
+          ))}
         </ScrollView>
+
+        {/* Pagination Dots */}
+        <View style={styles.pagination}>
+          {images.map((_, index) => (
+            <View key={index} style={[styles.dot, activeIndex === index && styles.activeDot]} />
+          ))}
+        </View>
       </LinearGradient>
     </View>
   );
@@ -93,11 +116,27 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   headerimage: {
-    width: 350,
-    height: 250,
+    width: width, // Full screen width for smooth scrolling
+    height: 240,
     resizeMode: 'contain',
-    marginHorizontal: 20,
-    borderRadius: 40,
+    borderRadius: 10,
+  },
+  pagination: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginTop: 10,
+  },
+  dot: {
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    backgroundColor: 'gray',
+    marginHorizontal: 5,
+  },
+  activeDot: {
+    backgroundColor: 'black',
+    width: 7,
+    height: 7,
   },
 });
 
