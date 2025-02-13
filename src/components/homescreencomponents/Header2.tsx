@@ -23,7 +23,7 @@ const Header2 = ({ navigation }: Header2Props) => {
           style={{ width: 35, height: 35, marginLeft: 10, marginTop: 10 }}
         />
         <TouchableOpacity style={styles.help}
-          onPress={() => navigation.navigate('Help3')}>
+          onPress={() => navigation.goBack()}>
           <Image source={require('../../assets/headphones.png')}
             style={{ height: 17, width: 17, marginRight: 10 }} />
           <Text style={styles.helpText}>Help</Text>

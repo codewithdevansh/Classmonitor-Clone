@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   headerimage: {
-    width: width, // Full screen width for smooth scrolling
+    width: width*0.97, // Full screen width for smooth scrolling
     height: 240,
     resizeMode: 'contain',
     borderRadius: 10,

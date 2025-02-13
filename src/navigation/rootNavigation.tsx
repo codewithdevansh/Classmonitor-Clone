@@ -13,9 +13,7 @@ import Community from '../screens/Community';
 import Intro from '../screens/Intro';
 import Verify from '../screens/Verify';
 import Account from '../screens/Account';
-import Help2 from '../screens/Help2';
-import Help3 from '../screens/Help3';
-import Help4 from '../screens/Help4';
+
 import LearningSection from '../screens/LearningSection';
 
 export type RootStackParamList = {
@@ -35,9 +33,6 @@ export type RootStackParamList = {
   Verify: { mobileNumber: string };
   LoginScreen:undefined;
   Account:undefined;
-  Help2:undefined;
-  Help3: undefined;
-  Help4: undefined;
   LearningSection: undefined;
 };
 
@@ -66,12 +61,6 @@ const RootNavigation = () => {
         <RootStack.Screen name="Verify" component={Verify} />
 
         <RootStack.Screen name="Account" component={Account} />
-
-        <RootStack.Screen name="Help2" component={Help2} />
-
-        <RootStack.Screen name="Help3" component={Help3} />
-
-        <RootStack.Screen name="Help4" component={Help4} />
 
         <RootStack.Screen name="LearningSection" component={LearningSection} />
          

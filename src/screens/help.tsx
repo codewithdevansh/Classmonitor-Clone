@@ -12,7 +12,7 @@ const Help = ({navigation}:HelpProps) => {
     <View style={{backgroundColor:'white',height:1000}}>
     <View style={{flexDirection:'column',backgroundColor:'white'}}>
     <View style={{flexDirection:'row',}}>
-      <TouchableOpacity onPress={() => navigation.navigate('Community')}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
       <Image
                 source={require('../assets/back.png')}
                 style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}

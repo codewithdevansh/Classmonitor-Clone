@@ -88,7 +88,7 @@ const Account = ({navigation}: AccountProps) => {
             <View style={{ backgroundColor: 'grey', height: 1, marginLeft: 55, width: '78%', marginTop: 'auto' }}></View>
           </TouchableOpacity>
           <TouchableOpacity style={{ width: '100%', height: 79, justifyContent: 'center', backgroundColor: 'white' }}
-          onPress={() => navigation.navigate('Help2')}>
+          onPress={() => navigation.navigate('Help')}>
             <View style={{ flexDirection: 'row' }}>
               <Image
                 source={require('../assets/contact.png')}

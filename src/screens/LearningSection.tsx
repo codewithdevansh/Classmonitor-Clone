@@ -14,7 +14,7 @@ const LearningSection = ({navigation}: LearningSectionProps) => {
     <GestureHandlerRootView style={{flex:1}}>
     <View style={{flex:1, backgroundColor:'purple', }}>
       <StatusBar style="light"/>
-      <TouchableOpacity onPress={() => navigation.navigate('MainTabs')}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
                       <Image
                           source={require('../assets/back.png')}
                           style={{ width: 25, height: 25, marginLeft: 20, marginTop: 20 }}
