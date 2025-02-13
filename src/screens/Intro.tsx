@@ -13,7 +13,10 @@ type IntroProps = {
 const Intro = ({navigation}:IntroProps) => {
      useEffect(() => {
         setTimeout(() =>{
-      navigation.navigate('MainTabs');
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'MainTabs', params: { screen: 'HomeScreen' } }],
+          });
     }, 200);
      
     }, []);
