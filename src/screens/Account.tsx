@@ -145,7 +145,10 @@ const Account = ({navigation}: AccountProps) => {
 
           <View >
             <TouchableOpacity style={{height:40,  flexDirection:'row', marginTop:40}}
-            onPress={() => navigation.navigate('MainTabs')}>
+            onPress={() => navigation.reset({
+              index: 0,
+              routes: [{ name: 'MainTabs', params: { screen: 'HomeScreen' } }],
+            })}>
             <Image
                       source={require('../assets/logout.png')}
                       style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}

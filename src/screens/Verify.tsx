@@ -17,7 +17,10 @@ const Verify = ({ navigation, route }: VerifyProps) => {
     if (otp.length === 4 && !isNaN(Number(otp))) {
       // Assuming the correct OTP is '1234' for demonstration purposes
       if (otp === '1234') {
-        navigation.navigate('MainTabs2');
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MainTabs2', params: { screen: 'HomeScreen2' } }],
+        });
       } else {
         Alert.alert('Invalid OTP', 'The OTP you entered is incorrect.');
       }
