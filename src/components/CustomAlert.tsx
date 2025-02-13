@@ -1,13 +1,20 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
 type CustomAlertProps = {
   visible: boolean;
   onClose: () => void;
-  onLogin: () => void;
 };
 
-const CustomAlert: React.FC<CustomAlertProps> = ({ visible, onClose, onLogin }) => {
+const CustomAlert: React.FC<CustomAlertProps> = ({ visible, onClose }) => {
+  const navigation = useNavigation(); // Access navigation
+
+  const handleLogin = () => {
+    onClose(); // Close the modal first
+    navigation.navigate("Login"); // Navigate to LoginScreen
+  };
+
   return (
     <Modal
       transparent={true}
@@ -19,7 +26,7 @@ const CustomAlert: React.FC<CustomAlertProps> = ({ visible, onClose, onLogin }) 
         <View style={styles.alertContainer}>
           <Text style={styles.alertTitle}>Need to explore the app?</Text>
           <Text style={styles.alertMessage}>Please login or signup with your account</Text>
-          <TouchableOpacity style={styles.loginButton} onPress={onLogin}>
+          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
             <Text style={styles.loginButtonText}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
