@@ -60,7 +60,7 @@ const Login = ({ navigation }: LoginScreenProps) => {
         }} lang={''} />
 
       <TouchableOpacity style={{ marginLeft: 30, marginTop: 550 }}
-        onPress={() => navigation.navigate('MainTabs')}>
+        onPress={() => navigation.goBack()}>
         <Text style={{ color: 'red' }}>Back to Home</Text></TouchableOpacity>
       <TouchableOpacity
         style={{

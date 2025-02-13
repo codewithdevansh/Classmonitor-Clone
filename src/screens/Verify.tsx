@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/rootNavigation';
+import { CommonActions } from '@react-navigation/native';
+import LoginStack from '../navigation/LoginStack';
 
 type VerifyProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Verify'>;
@@ -26,7 +28,7 @@ const Verify = ({ navigation, route }: VerifyProps) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Image
           source={require('../assets/back.png')}
           style={{ width: 25, height: 25, marginLeft: 10, marginTop: 10 }}

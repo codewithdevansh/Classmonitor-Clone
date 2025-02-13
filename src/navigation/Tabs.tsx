@@ -8,6 +8,7 @@ import Notification from '../screens/Notification';
 import AccountStack from './AccountStack';
 import CustomAlert from '../components/CustomAlert';
 import * as Animatable from 'react-native-animatable';
+import LoginStack from './LoginStack';
 
 const Tab = createBottomTabNavigator();
 

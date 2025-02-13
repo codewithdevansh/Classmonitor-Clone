@@ -21,7 +21,7 @@ const LearningSection = ({navigation}: LearningSectionProps) => {
                       />
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.help}
-                            onPress={() => navigation.navigate('Help4')}>
+                            onPress={() => navigation.navigate('Help')}>
                             <Image source={require('../assets/headphones.png')}
                               style={{ height: 17, width: 17, marginRight: 10 }} />
                             <Text style={{fontWeight:'bold',color:'black'}}>Help</Text>

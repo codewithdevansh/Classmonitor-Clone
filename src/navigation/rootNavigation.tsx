@@ -15,6 +15,7 @@ import Verify from '../screens/Verify';
 import Account from '../screens/Account';
 
 import LearningSection from '../screens/LearningSection';
+import HomeScreen2 from '../screens/HomeScreen2';
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -63,6 +64,8 @@ const RootNavigation = () => {
         <RootStack.Screen name="Account" component={Account} />
 
         <RootStack.Screen name="LearningSection" component={LearningSection} />
+
+        <RootStack.Screen name="Homescreen2" component={HomeScreen2} />
          
       </RootStack.Navigator>
       </GestureHandlerRootView>
