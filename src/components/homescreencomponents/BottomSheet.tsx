@@ -1,12 +1,13 @@
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
-import React, { useCallback, useEffect, forwardRef } from 'react'
-import { GestureDetector, Gesture, ScrollView } from 'react-native-gesture-handler'
-import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated'
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useCallback, useEffect, forwardRef, useState } from 'react';
+import { GestureDetector, Gesture, ScrollView } from 'react-native-gesture-handler';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import { List } from 'react-native-paper';
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('window')
+const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const MAX_TRANSLATE_Y = -SCREEN_HEIGHT; // Fully expanded
-const MIN_TRANSLATE_Y = -SCREEN_HEIGHT /1.87; // Initial collapsed position
+const MIN_TRANSLATE_Y = -SCREEN_HEIGHT / 1.87; // Initial collapsed position
 
 type BottomSheetProps = {
   children?: React.ReactNode;
@@ -33,11 +34,9 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ childre
     })
     .onUpdate((event) => {
       let newTranslateY = event.translationY + context.value.y;
-      // Restrict downward movement
       translateY.value = Math.max(newTranslateY, MAX_TRANSLATE_Y);
     })
     .onEnd(() => {
-      // Expand to full screen if past threshold, otherwise reset
       if (translateY.value < -SCREEN_HEIGHT / 2) {
         scrollTo(MAX_TRANSLATE_Y); // Expand fully
       } else {
@@ -80,6 +79,9 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ childre
                 systematic progression of concepts and skills. This is the most efficient way to approach the kit.
               </Text>
             </View>
+
+            {/* Dropdown Component */}
+            <DropdownComponent />
           </View>
         </ScrollView>
       </Animated.View>
@@ -87,13 +89,45 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ childre
   );
 });
 
+const DropdownComponent = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handlePress = () => setExpanded(!expanded);
+
+  return (
+    <View style={styles.container}>
+      <List.Accordion
+        title="Unit - 1"
+        expanded={expanded}
+        onPress={handlePress}
+      >
+        <List.Item
+          title="Colour The Same Animals"
+          description="EVS - 10 mins ACTIVITY"
+          left={() => <List.Icon icon="paw" />}
+        />
+        <List.Item
+          title="Letters And Sounds"
+          description="English - 20 mins ACTIVITY"
+          left={() => <List.Icon icon="alphabetical" />}
+        />
+        <List.Item
+          title="Number pairing"
+          description="Math - 15 mins ASSESSMENT"
+          left={() => <List.Icon icon="numeric" />}
+        />
+      </List.Accordion>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   bottomContainer: {
     height: SCREEN_HEIGHT,
     width: '100%',
     backgroundColor: 'white',
     position: 'absolute',
-    top: SCREEN_HEIGHT ,
+    top: SCREEN_HEIGHT,
     borderRadius: 25,
   },
   line: {
@@ -103,6 +137,31 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: 15,
     borderRadius: 2,
+  },
+  dropdownHeader: {
+    backgroundColor: '#007AFF',
+    padding: 15,
+    borderRadius: 10,
+  },
+  headerText: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  dropdownContent: {
+    backgroundColor: '#E5E5E5',
+    borderRadius: 10,
+    overflow: 'hidden',
+    marginTop: 5,
+  },
+  option: {
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  container: {
+    flex: 1,
+    padding: 16,
   },
 });
 
