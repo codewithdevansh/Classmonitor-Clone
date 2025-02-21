@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
-import _apiSendOtp from '../../../Backend/auth/phone_auth';
+
 
 type LoginScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'LoginScreen'>;
