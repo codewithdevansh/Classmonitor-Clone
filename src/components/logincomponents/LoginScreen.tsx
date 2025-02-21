@@ -29,9 +29,7 @@ const Login = ({ navigation }: LoginScreenProps) => {
     }
   };
 
-  async function sentOtp() {
-    await _apiSendOtp();
-  }
+  
 
   return (
     <View style={styles.container}>

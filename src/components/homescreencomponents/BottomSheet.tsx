@@ -1,8 +1,8 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useCallback, useEffect, forwardRef, useState } from 'react';
+import React, { useCallback, useEffect, forwardRef, useState, useImperativeHandle } from 'react';
 import { GestureDetector, Gesture, ScrollView } from 'react-native-gesture-handler';
-import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
-import { List } from 'react-native-paper';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import Collapsible from 'react-native-collapsible';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -20,13 +20,22 @@ export type BottomSheetRefProps = {
 
 const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ children }, ref) => {
   const translateY = useSharedValue(MIN_TRANSLATE_Y); // Start at min position
+  const context = useSharedValue({ y: 0 });
+  const [collapsed, setCollapsed] = useState(true);
 
   const scrollTo = useCallback((destination: number) => {
     'worklet';
     translateY.value = withSpring(destination, { damping: 50, stiffness: 200 });
   }, []);
 
-  const context = useSharedValue({ y: 0 });
+  useImperativeHandle(ref, () => ({
+    scrollTo: (destination: number) => scrollTo(destination),
+    isActive: () => translateY.value !== MIN_TRANSLATE_Y,
+  }));
+
+  useEffect(() => {
+    scrollTo(MIN_TRANSLATE_Y);
+  }, [scrollTo]);
 
   const gesture = Gesture.Pan()
     .onStart(() => {
@@ -44,15 +53,15 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ childre
       }
     });
 
-  useEffect(() => {
-    scrollTo(MIN_TRANSLATE_Y);
-  }, []);
-
   const rBottomSheetStyle = useAnimatedStyle(() => {
     return {
       transform: [{ translateY: translateY.value }],
     };
   });
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
 
   return (
     <GestureDetector gesture={gesture}>
@@ -79,47 +88,22 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ childre
                 systematic progression of concepts and skills. This is the most efficient way to approach the kit.
               </Text>
             </View>
-
-            {/* Dropdown Component */}
-            <DropdownComponent />
           </View>
+          <TouchableOpacity style={styles.dropdown} onPress={toggleCollapsed}>
+            <Text style={styles.headerText}>{collapsed ? 'Show More' : 'Show Less'}
+            </Text>
+            <Text style={styles.text}>This unit focuses on the introduction to categories like Birds and Animals alongwith the development of Literacy Skills and Numeracy Skills.</Text>
+          </TouchableOpacity>
+          <Collapsible collapsed={collapsed}>
+            <View style={styles.collapsedContent}>
+              <Text>Additional Learning Materials</Text>
+            </View>
+          </Collapsible>
         </ScrollView>
       </Animated.View>
     </GestureDetector>
   );
 });
-
-const DropdownComponent = () => {
-  const [expanded, setExpanded] = useState(false);
-
-  const handlePress = () => setExpanded(!expanded);
-
-  return (
-    <View style={styles.container}>
-      <List.Accordion
-        title="Unit - 1"
-        expanded={expanded}
-        onPress={handlePress}
-      >
-        <List.Item
-          title="Colour The Same Animals"
-          description="EVS - 10 mins ACTIVITY"
-          left={() => <List.Icon icon="paw" />}
-        />
-        <List.Item
-          title="Letters And Sounds"
-          description="English - 20 mins ACTIVITY"
-          left={() => <List.Icon icon="alphabetical" />}
-        />
-        <List.Item
-          title="Number pairing"
-          description="Math - 15 mins ASSESSMENT"
-          left={() => <List.Icon icon="numeric" />}
-        />
-      </List.Accordion>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
   bottomContainer: {
@@ -148,21 +132,34 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-  dropdownContent: {
-    backgroundColor: '#E5E5E5',
-    borderRadius: 10,
-    overflow: 'hidden',
-    marginTop: 5,
+  dropdown: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    elevation: 5,
+    width: '95%',
+    alignSelf: 'center',
+    marginTop: 25,
+    height: 120,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  option: {
-    padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+  collapsedContent: {
+    padding: 20,
+    backgroundColor: 'white',
+    elevation: 5,
+    borderBottomEndRadius:15,
+    borderBottomStartRadius:15,
+    width: '95%',
+    alignSelf: 'center',
+    height:200,
+    marginBottom: 20,
+  
   },
-  container: {
-    flex: 1,
-    padding: 16,
-  },
+  text:{
+    fontSize:14,
+    
+    padding:8
+  }
 });
 
 export default BottomSheet;
