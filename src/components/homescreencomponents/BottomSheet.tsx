@@ -89,16 +89,43 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ childre
               </Text>
             </View>
           </View>
-          <TouchableOpacity style={styles.dropdown} onPress={toggleCollapsed}>
-            <Text style={styles.headerText}>{collapsed ? 'Show More' : 'Show Less'}
-            </Text>
-            <Text style={styles.text}>This unit focuses on the introduction to categories like Birds and Animals alongwith the development of Literacy Skills and Numeracy Skills.</Text>
-          </TouchableOpacity>
-          <Collapsible collapsed={collapsed}>
-            <View style={styles.collapsedContent}>
-              <Text>Additional Learning Materials</Text>
-            </View>
-          </Collapsible>
+          <View style={styles.dropdownContainer}>
+  <TouchableOpacity style={[styles.dropdown, !collapsed && styles.expandedDropdown]} onPress={toggleCollapsed}>
+    <Text style={styles.headerText}>{collapsed ? 'Show More' : 'Show Less'}</Text>
+    <Text style={styles.text}>
+      This unit focuses on the introduction to categories like Birds and Animals along with the development of Literacy Skills and Numeracy Skills.
+    </Text>
+  </TouchableOpacity>
+
+  <Collapsible collapsed={collapsed}>
+    <View style={styles.collapsedContent}>
+      <TouchableOpacity style={{flexDirection:'row'}} >
+        <View style={{flexDirection:'column', justifyContent:'center', alignItems:'center', marginRight:10}} >
+          <Image source={require('../../assets/check.png')} style={{height:12, width:12, borderRadius:10,}}/>
+          <View style={{height:120, width:2, backgroundColor:'grey', marginTop:7}}></View>
+         </View>
+      <View style={{ flexDirection: 'column'}}>
+      <Text style={{fontWeight:'bold', fontSize:18}}>Walk Around The Letter</Text>
+      <Text style={{color:'grey'}}>English</Text>
+      <View style={{flexDirection:'row',}}>
+        <View style={{height:20, width:70, backgroundColor:'lightgrey',marginTop:5,borderRadius:5,justifyContent:'center',alignItems:'center',flexDirection:'row'}} >
+              <Image source={require('../../assets/time.png')} style={{height:12, width:12, borderRadius:10,}}/>
+              <Text style={{fontSize:10, marginLeft:5}}>15 mins</Text>
+        </View>
+        <View style={{height:20, width:85, backgroundColor:'lightblue', marginLeft:10,marginTop:5,borderRadius:5, alignItems:'center', justifyContent:'center'}}>
+          <Text style={{fontSize:10, alignSelf:'center', color:'darkblue'}}>ACTIVITY</Text>
+        </View>
+      </View>
+                <View style={{height:2, width:290,backgroundColor:'grey', marginTop:80}}></View>
+      </View>
+      <View>
+        <Image source={require('../../assets/instagram.png')} style={{height:75, width:75, marginLeft:-70, marginTop:-5}}/>
+      </View>
+      </TouchableOpacity>
+      
+    </View>
+  </Collapsible>
+</View>
         </ScrollView>
       </Animated.View>
     </GestureDetector>
@@ -132,34 +159,48 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
+  
+  text:{
+    fontSize:14,
+    
+    padding:8
+  },
+  dropdownContainer: {
+    width: '95%',
+    alignSelf: 'center',
+    marginTop: 25,
+    overflow: 'hidden', // Ensures smooth expansion
+    marginBottom: 10,
+    height: 1000
+  },
   dropdown: {
     backgroundColor: 'white',
     borderRadius: 15,
     elevation: 5,
-    width: '95%',
-    alignSelf: 'center',
-    marginTop: 25,
-    height: 120,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 15,
+    width:'90%',
+    alignSelf:'center',
+    marginTop:10,
+    
+  },
+  expandedDropdown: {
+    borderBottomLeftRadius: 0, // Remove bottom radius when expanded
+    borderBottomRightRadius: 0,
+    width:'90%',
+    alignSelf:'center',
+   
   },
   collapsedContent: {
     padding: 20,
     backgroundColor: 'white',
     elevation: 5,
-    borderBottomEndRadius:15,
-    borderBottomStartRadius:15,
-    width: '95%',
-    alignSelf: 'center',
-    height:200,
-    marginBottom: 20,
-  
+    borderBottomLeftRadius: 15, // Ensure smooth connection
+    borderBottomRightRadius: 15,
+    width:'90%',
+    alignSelf:'center',
+    marginBottom:10
+
   },
-  text:{
-    fontSize:14,
-    
-    padding:8
-  }
 });
 
 export default BottomSheet;
