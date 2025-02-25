@@ -19,7 +19,7 @@ const Notification_Settings = ({navigation}: LearningSectionProps) => {
                                 style={{ width: 25, height: 25, marginLeft: 20, marginTop: 20 }}
                             />
                         </TouchableOpacity>
-      <Text style={{marginTop:21, alignItems:'center', marginLeft:85, fontSize:15}}>Notification Settings</Text>
+      <Text style={{marginTop:21, alignItems:'center', marginLeft:78, fontSize:20}}>Notification Settings</Text>
     </View>
 
     <View style={{flexDirection:'row', marginTop:15}}>
