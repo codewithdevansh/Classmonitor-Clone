@@ -16,6 +16,7 @@ import Account from '../screens/Account';
 import About_us from '../screens/About_us';
 import LearningSection from '../screens/LearningSection';
 import HomeScreen2 from '../screens/HomeScreen2';
+import Notification_Settings from '../screens/Notification_Settings';
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -36,6 +37,7 @@ export type RootStackParamList = {
   Account:undefined;
   LearningSection: undefined;
   About_us:undefined;
+  Notification_Settings:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -69,6 +71,8 @@ const RootNavigation = () => {
         <RootStack.Screen name="Homescreen2" component={HomeScreen2} />
 
         <RootStack.Screen name="About_us" component={About_us} />
+
+        <RootStack.Screen name="Notification_Settings" component={Notification_Settings} />
          
       </RootStack.Navigator>
       </GestureHandlerRootView>
