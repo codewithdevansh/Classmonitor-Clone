@@ -182,6 +182,101 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(({ childre
               </View>
             </Collapsible>
           </View>
+        
+
+          <View style={styles.dropdownContainer}>
+            <TouchableOpacity style={[styles.dropdown, !collapsed && styles.expandedDropdown]} onPress={toggleCollapsed}>
+             <View style={{ flexDirection: 'row', }}>
+             <View style={{height:35, width:70, backgroundColor:'red', marginTop:-22, borderTopLeftRadius:5, borderBottomStartRadius:10, borderBottomEndRadius:10, justifyContent:'center', alignItems:'center'}}>
+                  <Text style={{color:'white', fontWeight:'600', fontSize:13}}>Unit -1</Text>
+              </View>
+              <View style={{height:8, width:3, backgroundColor:'darkred', marginTop:-22, marginLeft:-2, borderTopEndRadius:2}}></View>
+             </View>
+              <Text style={styles.headerText}>{collapsed ? 'Show More' : 'Show Less'}</Text>
+              <Text style={styles.text}>
+                This unit focuses on the introduction to categories like Birds and Animals along with the development of Literacy Skills and Numeracy Skills.
+              </Text>
+            </TouchableOpacity>
+
+            <Collapsible collapsed={collapsed}>
+              <View style={styles.collapsedContent}>
+
+                <TouchableOpacity style={{ flexDirection: 'row' }} >
+                  <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginRight: 10 }} >
+                    <Image source={require('../../assets/check.png')} style={{ height: 12, width: 12, borderRadius: 10, }} />
+                    <View style={{ height: 120, width: 2, backgroundColor: 'grey', marginTop: 7 }}></View>
+                  </View>
+                  <View style={{ flexDirection: 'column' }}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Walk Around The Letter</Text>
+                    <Text style={{ color: 'grey' }}>English</Text>
+                    <View style={{ flexDirection: 'row', }}>
+                      <View style={{ height: 20, width: 70, backgroundColor: 'lightgrey', marginTop: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
+                        <Image source={require('../../assets/time.png')} style={{ height: 12, width: 12, borderRadius: 10, }} />
+                        <Text style={{ fontSize: 10, marginLeft: 5 }}>15 mins</Text>
+                      </View>
+                      <View style={{ height: 20, width: 85, backgroundColor: 'lightblue', marginLeft: 10, marginTop: 5, borderRadius: 5, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 10, alignSelf: 'center', color: 'darkblue' }}>ACTIVITY</Text>
+                      </View>
+                    </View>
+                    <View style={{ height: 2, width: 290, backgroundColor: 'grey', marginTop: 80 }}></View>
+                  </View>
+                  <View>
+                    <Image source={require('../../assets/instagram.png')} style={{ height: 75, width: 75, marginLeft: -70, marginTop: -5 }} />
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{ flexDirection: 'row' , marginTop:15}} >
+                  <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginRight: 10 }} >
+                    <Image source={require('../../assets/check.png')} style={{ height: 12, width: 12, borderRadius: 10, }} />
+                    <View style={{ height: 120, width: 2, backgroundColor: 'grey', marginTop: 7 }}></View>
+                  </View>
+                  <View style={{ flexDirection: 'column' }}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Walk Around The Letter</Text>
+                    <Text style={{ color: 'grey' }}>English</Text>
+                    <View style={{ flexDirection: 'row', }}>
+                      <View style={{ height: 20, width: 70, backgroundColor: 'lightgrey', marginTop: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
+                        <Image source={require('../../assets/time.png')} style={{ height: 12, width: 12, borderRadius: 10, }} />
+                        <Text style={{ fontSize: 10, marginLeft: 5 }}>15 mins</Text>
+                      </View>
+                      <View style={{ height: 20, width: 85, backgroundColor: 'lightblue', marginLeft: 10, marginTop: 5, borderRadius: 5, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 10, alignSelf: 'center', color: 'darkblue' }}>ACTIVITY</Text>
+                      </View>
+                    </View>
+                    <View style={{ height: 2, width: 290, backgroundColor: 'grey', marginTop: 80 }}></View>
+                  </View>
+                  <View>
+                    <Image source={require('../../assets/instagram.png')} style={{ height: 75, width: 75, marginLeft: -70, marginTop: -5 }} />
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{ flexDirection: 'row' , marginTop:15}} >
+                  <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginRight: 10 }} >
+                    <Image source={require('../../assets/check.png')} style={{ height: 12, width: 12, borderRadius: 10, }} />
+                    <View style={{ height: 120, width: 2, backgroundColor: 'grey', marginTop: 7 }}></View>
+                  </View>
+                  <View style={{ flexDirection: 'column' }}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Walk Around The Letter</Text>
+                    <Text style={{ color: 'grey' }}>English</Text>
+                    <View style={{ flexDirection: 'row', }}>
+                      <View style={{ height: 20, width: 70, backgroundColor: 'lightgrey', marginTop: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
+                        <Image source={require('../../assets/time.png')} style={{ height: 12, width: 12, borderRadius: 10, }} />
+                        <Text style={{ fontSize: 10, marginLeft: 5 }}>15 mins</Text>
+                      </View>
+                      <View style={{ height: 20, width: 85, backgroundColor: 'lightblue', marginLeft: 10, marginTop: 5, borderRadius: 5, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 10, alignSelf: 'center', color: 'darkblue' }}>ACTIVITY</Text>
+                      </View>
+                    </View>
+                    <View style={{ height: 2, width: 290, backgroundColor: 'grey', marginTop: 80 }}></View>
+                  </View>
+                  <View>
+                    <Image source={require('../../assets/instagram.png')} style={{ height: 75, width: 75, marginLeft: -70, marginTop: -5 }} />
+                  </View>
+                </TouchableOpacity>
+
+
+              </View>
+            </Collapsible>
+          </View>
 
           
                 
@@ -213,6 +308,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#007AFF',
     padding: 15,
     borderRadius: 10,
+  
   },
   headerText: {
     color: 'white',

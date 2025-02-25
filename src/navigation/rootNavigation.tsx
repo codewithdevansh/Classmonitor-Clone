@@ -13,7 +13,7 @@ import Community from '../screens/Community';
 import Intro from '../screens/Intro';
 import Verify from '../screens/Verify';
 import Account from '../screens/Account';
-
+import About_us from '../screens/About_us';
 import LearningSection from '../screens/LearningSection';
 import HomeScreen2 from '../screens/HomeScreen2';
 
@@ -35,6 +35,7 @@ export type RootStackParamList = {
   LoginScreen:undefined;
   Account:undefined;
   LearningSection: undefined;
+  About_us:undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -66,6 +67,8 @@ const RootNavigation = () => {
         <RootStack.Screen name="LearningSection" component={LearningSection} />
 
         <RootStack.Screen name="Homescreen2" component={HomeScreen2} />
+
+        <RootStack.Screen name="About_us" component={About_us} />
          
       </RootStack.Navigator>
       </GestureHandlerRootView>

@@ -3,6 +3,7 @@ import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/rootNavigation';
+import About_us from './About_us';
 
 type AccountProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Account'>;
@@ -101,7 +102,8 @@ const Account = ({navigation}: AccountProps) => {
             </View>
             <View style={{ backgroundColor: 'grey', height: 1, marginLeft: 55, width: '78%', marginTop: 'auto' }}></View>
           </TouchableOpacity>
-          <TouchableOpacity style={{ width: '100%', height: 79, justifyContent: 'center', backgroundColor: 'white',borderBottomLeftRadius:25,borderBottomRightRadius:25 }}>
+          <TouchableOpacity style={{ width: '100%', height: 79, justifyContent: 'center', backgroundColor: 'white',borderBottomLeftRadius:25,borderBottomRightRadius:25 }}
+          onPress={() => navigation.navigate('About_us')}>
             <View style={{ flexDirection: 'row' }}>
               <Image
                 source={require('../assets/person.png')}
