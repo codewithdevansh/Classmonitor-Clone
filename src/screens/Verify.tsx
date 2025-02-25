@@ -5,32 +5,9 @@ import { RootStackParamList } from '../navigation/rootNavigation';
 import { CommonActions } from '@react-navigation/native';
 import LoginStack from '../navigation/LoginStack';
 
-// type VerifyProps = {
-//   navigation: NativeStackNavigationProp<RootStackParamList, 'Verify'>;
-//   route: { params: { mobileNumber: string } };
-// };
-
-// const Verify = ({ navigation, route }: VerifyProps) => {
-//   const [otp, setOtp] = useState('');
-
-//   const handleVerify = () => {
-//     if (otp.length === 4 && !isNaN(Number(otp))) {
-//       // Assuming the correct OTP is '1234' for demonstration purposes
-//       if (otp === '1234') {
-//         navigation.reset({
-//           index: 0,
-//           routes: [{ name: 'MainTabs2', params: { screen: 'HomeScreen2' } }],
-//         });
-//       } else {
-//         Alert.alert('Invalid OTP', 'The OTP you entered is incorrect.');
-//       }
-//     } else {
-//       Alert.alert('Invalid OTP', 'Please enter a valid 4-digit OTP.');
-//     }
-//   };
 type VerifyProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Verify'>;
-  route: { params: { mobileNumber: string, otp: string } };  // Receive OTP
+  route: { params: { mobileNumber: string } };
 };
 
 const Verify = ({ navigation, route }: VerifyProps) => {
@@ -38,7 +15,8 @@ const Verify = ({ navigation, route }: VerifyProps) => {
 
   const handleVerify = () => {
     if (otp.length === 4 && !isNaN(Number(otp))) {
-      if (otp === route.params.otp) {  // ✅ Compare entered OTP with sent OTP
+      // Assuming the correct OTP is '1234' for demonstration purposes
+      if (otp === '1234') {
         navigation.reset({
           index: 0,
           routes: [{ name: 'MainTabs2', params: { screen: 'HomeScreen2' } }],
@@ -50,6 +28,28 @@ const Verify = ({ navigation, route }: VerifyProps) => {
       Alert.alert('Invalid OTP', 'Please enter a valid 4-digit OTP.');
     }
   };
+// type VerifyProps = {
+//   navigation: NativeStackNavigationProp<RootStackParamList, 'Verify'>;
+//   route: { params: { mobileNumber: string, otp: string } };  // Receive OTP
+// };
+
+// const Verify = ({ navigation, route }: VerifyProps) => {
+//   const [otp, setOtp] = useState('');
+
+//   const handleVerify = () => {
+//     if (otp.length === 4 && !isNaN(Number(otp))) {
+//       if (otp === route.params.otp) {  // ✅ Compare entered OTP with sent OTP
+//         navigation.reset({
+//           index: 0,
+//           routes: [{ name: 'MainTabs2', params: { screen: 'HomeScreen2' } }],
+//         });
+//       } else {
+//         Alert.alert('Invalid OTP', 'The OTP you entered is incorrect.');
+//       }
+//     } else {
+//       Alert.alert('Invalid OTP', 'Please enter a valid 4-digit OTP.');
+//     }
+//   };
 
 
   return (

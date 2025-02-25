@@ -18,12 +18,9 @@ const Login = ({ navigation }: LoginScreenProps) => {
 
   const handleContinue = async () => {
     if (number.length === 10 && !isNaN(Number(number))) {
-      const otp = await _apiSendOtp(number);
-      if (otp) {
-        navigation.navigate('Verify', { mobileNumber: number, otp });
-      } else {
-        Alert.alert('Error', 'Failed to send OTP. Try again.');
-      }
+      
+        navigation.navigate('Verify', { mobileNumber: number });
+      
     } else {
       Alert.alert('Invalid Number', 'Please enter a valid 10-digit mobile number.');
     }
