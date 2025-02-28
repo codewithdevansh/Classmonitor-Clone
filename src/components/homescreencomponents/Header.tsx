@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView, Dimensions } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState,useContext } from 'react';
+import { UiContext } from '../../context/uiContext';
 import LinearGradient from 'react-native-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/rootNavigation';
@@ -13,11 +14,20 @@ type HeaderProps = {
 const Header = ({ navigation }: HeaderProps) => {
   const scrollViewRef = useRef<ScrollView>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const images = [
+  const image = [
     require('../../assets/headerimage.png'),
     require('../../assets/headerimage.png'),
     require('../../assets/headerimage.png'),
   ];
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/images') // Fetch images from backend
+      .then(response => response.json())
+      .then(data => setImages(data.images))
+      .catch(error => console.error('Error fetching images:', error));
+  }, []);
+  
 
   // Auto-scroll effect
   useEffect(() => {
@@ -47,7 +57,7 @@ const Header = ({ navigation }: HeaderProps) => {
         colors={['#FAD1D1', '#F8B4B4', '#FDB5B5']}
         style={[{ height: 450, alignItems: 'flex-start' }, styles.container]}
       >
-        <Image source={require('../../assets/logo.png')} style={styles.logo} />
+        <Image source={{ uri: 'http://localhost:5000/public/logo.png' }} style={styles.logo} />
         <TouchableOpacity style={styles.loginbutton} onPress={() => navigation.navigate('Login')}>
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
@@ -63,7 +73,7 @@ const Header = ({ navigation }: HeaderProps) => {
           scrollEventThrottle={16}
           style={styles.horizon}
         >
-          {images.map((img, index) => (
+          {image.map((img, index) => (
             <Image key={index} source={img} style={styles.headerimage} />
           ))}
         </ScrollView>
