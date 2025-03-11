@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://localhost:5000/api/ui";
+export const API_BASE_URL = "http://10.0.2.2:5000/api/images";
 
 export const fetchUIData = async () => {
   try {
