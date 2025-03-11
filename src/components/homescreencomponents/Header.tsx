@@ -30,7 +30,7 @@ const Header = ({navigation}: HeaderProps) => {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("http://10.0.2.2:5000/api/images") // Fetch images from backend
+    fetch('http://10.0.2.2:5000/api/images') // Fetch images from backend
       .then(response => response.json())
       .then(data => setImages(data.images))
       .catch(error => console.error('Error fetching images:', error));
@@ -67,6 +67,7 @@ const Header = ({navigation}: HeaderProps) => {
           source={{uri: 'http://10.0.2.2:5000/public/logo.png'}}
           style={styles.logo}
         />
+
         <TouchableOpacity
           style={styles.loginbutton}
           onPress={() => navigation.navigate('Login')}>
@@ -86,7 +87,7 @@ const Header = ({navigation}: HeaderProps) => {
           scrollEventThrottle={16}
           style={styles.horizon}>
           {images.map((img, index) => (
-            <Image key={index} source={{uri:img}} style={styles.headerimage} />
+            <Image key={index} source={{uri: img}} style={styles.headerimage} />
           ))}
         </ScrollView>
 
